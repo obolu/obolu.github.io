@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="web学习," />
 
 
 
@@ -79,17 +79,27 @@
 
 
 
-<meta name="description" content="hello world！">
+<meta name="description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
+<meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO初体验">
-<meta property="og:url" content="http://yoursite.com/2018/07/15/hello-world/index.html">
+<meta property="og:title" content="xss渗透之BeEF学习">
+<meta property="og:url" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hello world！">
+<meta property="og:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-15T04:11:05.792Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/82ab6D4F9i.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/HLlBcidF49.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/26l2jA02Ec.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/E90I8dK0Dc.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/IIb320Ecfb.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/D5dCFgcjHh.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/BJadD57iH1.png?imageslim">
+<meta property="og:updated_time" content="2018-07-15T04:25:53.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO初体验">
-<meta name="twitter:description" content="hello world！">
+<meta name="twitter:title" content="xss渗透之BeEF学习">
+<meta name="twitter:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim">
 
 
 
@@ -119,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/15/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/"/>
 
 
 
 
 
-  <title>HEXO初体验 | Hexo</title>
+  <title>xss渗透之BeEF学习 | Hexo</title>
   
 
 
@@ -262,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="obolu">
@@ -279,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HEXO初体验</h1>
+          <h1 class="post-title" itemprop="name headline">xss渗透之BeEF学习</h1>
         
 
         <div class="post-meta">
@@ -291,7 +301,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T10:49:43+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T12:24:04+08:00">
                 2018-07-15
               </time>
             
@@ -301,6 +311,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识总结/" itemprop="url" rel="index">
+                    <span itemprop="name">知识总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,7 +361,17 @@
       
 
       
-        <p>hello world！</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</li>
+<li>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</li>
+<li>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</li>
+<li>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2>  apt-get install beef-xss<br>  下载安装，这里安装到了/usr/share文件夹下<br>  进入安装文件下输入./beef启动<br><img src="![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim" alt="">)<br>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br><img src="![mark](http://img.5am3.com/img/180602/82ab6D4F9i.png?imageslim" alt="">)<br>通过操作机打开UI URL，默认账号密码为beef<br>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="![mark](http://img.5am3.com/img/180602/HLlBcidF49.png?imageslim" alt="">)<br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="![mark](http://img.5am3.com/img/180602/26l2jA02Ec.png?imageslim" alt="">)<br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="![mark](http://img.5am3.com/img/180602/E90I8dK0Dc.png?imageslim" alt="">)<br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="![mark](http://img.5am3.com/img/180602/IIb320Ecfb.png?imageslim" alt="">)<br>输入命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>启动postgresql服务。输入命令“msfdb init”,初始化数据库。<br>1.8 在终端中输入“msfconsole”启动metasploit模块,输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load msgrpc ServerHost=192.168.1.2 Pass=abc123</span><br></pre></td></tr></table></figure></p>
+<p>进入beef安装目录，启动beef<br>Ps：这里必须先开msf，再开beef，才能在beef下用msf，也就是说两者开着一起工作！<br><img src="![mark](http://img.5am3.com/img/180602/D5dCFgcjHh.png?imageslim" alt="">)</p>
+<p>PS：例如get cookie<br><img src="![mark](http://img.5am3.com/img/180602/BJadD57iH1.png?imageslim" alt="">)</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BeEF：The Browser Exploitation Framework 的缩写，意在通过一些手段，控制对方的浏览器。<br>里面集成了很多模块，能够获取很多东西，有cookie，浏览器名字，版本，插件，是否支持java，vb，flash等，感觉很神器的一个工具，还可以通过组合metasploit自动化攻击<br>一些关于BeEF的文章:<br><a href="https://blog.csdn.net/emaste_r/article/details/17091067" title="初探BeEF(有自动化攻击IE6实例)" target="_blank" rel="noopener">初探BeEF(有自动化攻击IE6实例)</a><br><a href="https://www.cnblogs.com/xuanhun/p/4203143.html" title="kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）" target="_blank" rel="noopener">kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）</a></p>
 
       
     </div>
@@ -345,6 +387,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/web学习/" rel="tag"># web学习</a>
+          
+        </div>
+      
 
       
       
@@ -354,14 +402,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/15/python爬虫初探出门/" rel="next" title="Python爬虫初探入门">
+                <i class="fa fa-chevron-left"></i> Python爬虫初探入门
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/15/php 弱类型总结/" rel="prev" title="PHP弱类型初探">
-                PHP弱类型初探 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/15/xss渗透之利用beef结合metasploit初试/" rel="prev" title="xss渗透之利用beef结合metasploit初试">
+                xss渗透之利用beef结合metasploit初试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -414,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +540,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeEF安装"><span class="nav-number">2.</span> <span class="nav-text">BeEF安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeEF和metasploit组合"><span class="nav-number">3.</span> <span class="nav-text">BeEF和metasploit组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
