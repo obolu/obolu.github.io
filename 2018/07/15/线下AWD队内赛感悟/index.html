@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。 第一步：探测阶段探测漏洞一般比赛好像都是一个队伍维护一个服务器，开始会发一下SSH账号密码这里我用的是Xshell6和Xftp6通过这两个软件连接到自己的服务器，然后把网页源码下载下来到本地，一来可以日后被">
+<meta name="description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。">
 <meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线下AWD感悟">
 <meta property="og:url" content="http://yoursite.com/2018/07/15/线下AWD队内赛感悟/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。 第一步：探测阶段探测漏洞一般比赛好像都是一个队伍维护一个服务器，开始会发一下SSH账号密码这里我用的是Xshell6和Xftp6通过这两个软件连接到自己的服务器，然后把网页源码下载下来到本地，一来可以日后被">
+<meta property="og:description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.5am3.com/img/180612/Ll1ID7B1lG.png?imageslim">
 <meta property="og:image" content="http://img.5am3.com/img/180612/hfdmgbb73c.png?imageslim">
@@ -94,10 +94,10 @@
 <meta property="og:image" content="http://img.5am3.com/img/180612/eL5jb8Jkj2.png?imageslim">
 <meta property="og:image" content="http://img.5am3.com/img/180612/CCJ5E0k4CI.png?imageslim">
 <meta property="og:image" content="http://img.5am3.com/img/180612/IKIbbm2GkE.png?imageslim">
-<meta property="og:updated_time" content="2018-07-15T04:28:19.587Z">
+<meta property="og:updated_time" content="2018-07-15T04:48:50.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线下AWD感悟">
-<meta name="twitter:description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。 第一步：探测阶段探测漏洞一般比赛好像都是一个队伍维护一个服务器，开始会发一下SSH账号密码这里我用的是Xshell6和Xftp6通过这两个软件连接到自己的服务器，然后把网页源码下载下来到本地，一来可以日后被">
+<meta name="twitter:description" content="经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。">
 <meta name="twitter:image" content="http://img.5am3.com/img/180612/Ll1ID7B1lG.png?imageslim">
 
 
@@ -361,6 +361,7 @@
 
       
         <p>经历了两次队内AWD比赛，感觉是时候写一下初步认识的感悟了。首先比赛形式感觉是二三十个队伍各自维护一个服务器，服务器上面一般跑着一个网站，各个队伍通过漏洞挖掘渗透其他队伍的网站，获取Flag。</p>
+<a id="more"></a>
 <h1 id="第一步：探测阶段"><a href="#第一步：探测阶段" class="headerlink" title="第一步：探测阶段"></a>第一步：探测阶段</h1><h2 id="探测漏洞"><a href="#探测漏洞" class="headerlink" title="探测漏洞"></a>探测漏洞</h2><p>一般比赛好像都是一个队伍维护一个服务器，开始会发一下SSH账号密码<br>这里我用的是Xshell6和Xftp6<br><img src="http://img.5am3.com/img/180612/Ll1ID7B1lG.png?imageslim" alt="mark"><br>通过这两个软件连接到自己的服务器，然后把网页源码下载下来到本地，一来可以日后被攻击之后可以恢复，二来可以利用半自动漏洞检测软件来探测一下漏洞。常用的漏洞检测软件有AWVS和D盾等等，D盾可以用来扫描一些常见的web漏洞，感觉还是很好用的<br><img src="http://img.5am3.com/img/180612/hfdmgbb73c.png?imageslim" alt="mark"><br>接下来就是源码审计了，有一个Seay源码审计系统工具<br><img src="http://img.5am3.com/img/180612/dejfJHK2bG.png?imageslim" alt="mark"><br>可以全局搜索一些字符，和自动审计一些危险函数和上传点文件执行函数等等</p>
 <h2 id="探测ip"><a href="#探测ip" class="headerlink" title="探测ip"></a>探测ip</h2><p>因为二三十个队伍每个队伍有一个服务器，但是我们只知道自己的，于是就需要探测其他人的服务器了，这里NMAP提供了一些C段和B段扫描的功能<br><img src="http://img.5am3.com/img/180612/CK9JJ83AB2.png?imageslim" alt="mark"></p>
 <h1 id="第二步-漏洞利用阶段"><a href="#第二步-漏洞利用阶段" class="headerlink" title="第二步 漏洞利用阶段"></a>第二步 漏洞利用阶段</h1><h2 id="举一个小栗子"><a href="#举一个小栗子" class="headerlink" title="举一个小栗子"></a>举一个小栗子</h2><p><strong>第一次</strong>队内赛留的洞是一个任意文件上传漏洞，首先可以通过URL访问ip/files来查看网页上传的文件，（在该文件夹下写一个index可以修复）通过一个文件上传点可以上传恶意PHP脚本，结合菜刀或者hackbar可以获得flag<br>此处学到了一个system命令执行，通过构造一句话</p>

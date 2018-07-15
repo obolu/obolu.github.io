@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://img.5am3.com/img/180626/0164J2052j.png?imageslim">
 <meta property="og:image" content="http://img.5am3.com/img/180626/ib1g1FkIcK.png?imageslim">
 <meta property="og:image" content="http://img.5am3.com/img/180626/B1kL8ma3BF.png?imageslim">
-<meta property="og:updated_time" content="2018-07-15T04:43:42.276Z">
+<meta property="og:updated_time" content="2018-07-15T04:47:27.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6.23CISCN半决赛感悟">
 <meta name="twitter:description" content="首先感觉题目对萌新不是非常友好，好多新知识的感觉····同时感觉自己需要学的东西还有好多多多多多多多">
@@ -360,7 +360,7 @@
 <a id="more"></a>
 <h2 id="python反序列化"><a href="#python反序列化" class="headerlink" title="python反序列化"></a>python反序列化</h2><p>参考链接：<a href="https://www.cnblogs.com/abobo/p/8080447.html" title="pickle模块" target="_blank" rel="noopener">pickle模块</a><br><a href="https://www.cnblogs.com/whzym111/p/5797961.html" title="pickle（2）" target="_blank" rel="noopener">pickle（2）</a><br>在web1里面有一个如下的预留漏洞就是关于Python反序列化<br>首先读取name为序列化值<img src="http://img.5am3.com/img/180626/0164J2052j.png?imageslim" alt="mark"><br>在代码中也有对应的反序列：<br><img src="http://img.5am3.com/img/180626/ib1g1FkIcK.png?imageslim" alt="mark"><br>这段代码在购物车提交的时候会出现一个name的base64字段，当时感觉很可疑，解码出来是商品名，但是因为学术短浅我还以为是随意购买····尝试了一下flag字段加密，结果没有回显，到了fix it环节，看到代码和得到大佬的启发之后，才知道这个是反序列化，可以执行对应的命令···</p>
 <h2 id="脚本关于绕过验证码"><a href="#脚本关于绕过验证码" class="headerlink" title="脚本关于绕过验证码"></a>脚本关于绕过验证码</h2><p>web10有一个环节是购买一个10000积分的物品会有大惊喜（赛后源码就是买了这个就是flag）每个账号创建的时候会有一个推荐用户的选项，实测每创建一个用户会给被推荐用户+10积分，题目页面说每个用户最多被300个用户推荐（实际源码并没有对此做限制，果然学信安要敢于尝试啊·····），于是思路就是薅羊毛。<br>当时的思路是通过python的requests构造新建用户页面的参数并post过去，但是这个网站有一个验证码···大概如下这种：<br><img src="http://img.5am3.com/img/180626/B1kL8ma3BF.png?imageslim" alt="mark"><br>因为当时不是很了解这个绕验证码的原理···感觉需要学习的还有好多啊····</p>
-<h2 id="关于python的网站结构和漏洞"><a href="#关于python的网站结构和漏洞" class="headerlink" title="关于python的网站结构和漏洞"></a>关于python的网站结构和漏洞</h2><p>这个感觉是一个以前没怎么了解过得方面，以后还得多看看。<br>web7有一个上传点，但是python框架的不像php、asp一样有一句话木马，上传和各种漏洞还是在反序列化这里多一点<br>web框架好像有Tornado、Django等等。ᕦ(･ㅂ･)ᕤ学习任重道远啊<br>                                                 ——obolu</p>
+<h2 id="关于python的网站结构和漏洞"><a href="#关于python的网站结构和漏洞" class="headerlink" title="关于python的网站结构和漏洞"></a>关于python的网站结构和漏洞</h2><p>这个感觉是一个以前没怎么了解过得方面，以后还得多看看。<br>web7有一个上传点，但是python框架的不像php、asp一样有一句话木马，上传和各种漏洞还是在反序列化这里多一点<br>web框架好像有Tornado、Django等等。ᕦ(･ㅂ･)ᕤ学习任重道远啊</p>
 
       
     </div>

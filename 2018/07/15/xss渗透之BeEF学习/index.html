@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
+<meta name="description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编">
 <meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss渗透之BeEF学习">
 <meta property="og:url" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
+<meta property="og:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/82ab6D4F9i.png?imageslim">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/IIb320Ecfb.png?imageslim">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/D5dCFgcjHh.png?imageslim">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/BJadD57iH1.png?imageslim">
-<meta property="og:updated_time" content="2018-07-15T04:25:53.653Z">
+<meta property="og:updated_time" content="2018-07-15T04:48:27.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xss渗透之BeEF学习">
-<meta name="twitter:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。 BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。 BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project. 通过xss这个漏洞，BeEF可以通过一段编制好的">
+<meta name="twitter:description" content="前言 BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/15/xss渗透之BeEF学习/![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim">
 
 
@@ -362,10 +362,17 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</li>
-<li>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</li>
-<li>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</li>
-<li>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2>  apt-get install beef-xss<br>  下载安装，这里安装到了/usr/share文件夹下<br>  进入安装文件下输入./beef启动<br><img src="![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim" alt="">)<br>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br><img src="![mark](http://img.5am3.com/img/180602/82ab6D4F9i.png?imageslim" alt="">)<br>通过操作机打开UI URL，默认账号密码为beef<br>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="![mark](http://img.5am3.com/img/180602/HLlBcidF49.png?imageslim" alt="">)<br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="![mark](http://img.5am3.com/img/180602/26l2jA02Ec.png?imageslim" alt="">)<br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="![mark](http://img.5am3.com/img/180602/E90I8dK0Dc.png?imageslim" alt="">)<br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="![mark](http://img.5am3.com/img/180602/IIb320Ecfb.png?imageslim" alt="">)<br>输入命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
+<li><p>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</p>
+</li>
+<li><p>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</p>
+</li>
+<li><p>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</p>
+</li>
+<li><p>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</p>
+<a id="more"></a>
+<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2><p>  apt-get install beef-xss<br>  下载安装，这里安装到了/usr/share文件夹下<br>  进入安装文件下输入./beef启动<br><img src="![mark](http://img.5am3.com/img/180602/8GL7igb1mh.png?imageslim" alt="">)<br>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br><img src="![mark](http://img.5am3.com/img/180602/82ab6D4F9i.png?imageslim" alt="">)<br>通过操作机打开UI URL，默认账号密码为beef<br>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="![mark](http://img.5am3.com/img/180602/HLlBcidF49.png?imageslim" alt="">)<br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="![mark](http://img.5am3.com/img/180602/26l2jA02Ec.png?imageslim" alt="">)<br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用</p>
+<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2><p>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="![mark](http://img.5am3.com/img/180602/E90I8dK0Dc.png?imageslim" alt="">)<br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="![mark](http://img.5am3.com/img/180602/IIb320Ecfb.png?imageslim" alt="">)<br>输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>启动postgresql服务。输入命令“msfdb init”,初始化数据库。<br>1.8 在终端中输入“msfconsole”启动metasploit模块,输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load msgrpc ServerHost=192.168.1.2 Pass=abc123</span><br></pre></td></tr></table></figure></p>
