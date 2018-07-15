@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b ;    $a===$b ; ?">
+<meta name="description" content="title: php 弱类型总结php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2018/07/15/php 弱类型总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b ;    $a===$b ; ?">
+<meta property="og:description" content="title: php 弱类型总结php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-15T04:12:27.578Z">
+<meta property="og:updated_time" content="2018-07-15T04:16:24.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b ;    $a===$b ; ?">
+<meta name="twitter:description" content="title: php 弱类型总结php 弱类型总结0x01 导入PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。 0x02 知识介绍php中有两种比较的符号 == 与 ====== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较== 在进行比较的时候，会先将字符串类型转化成相同，再比较1234&amp;lt;?php    $a == $b">
 
 
 
@@ -329,7 +329,7 @@
       
 
       
-        <h1 id="php-弱类型总结"><a href="#php-弱类型总结" class="headerlink" title="php 弱类型总结"></a>php 弱类型总结</h1><h2 id="0x01-导入"><a href="#0x01-导入" class="headerlink" title="0x01 导入"></a>0x01 导入</h2><p>PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。</p>
+        <h1 id="title-php-弱类型总结"><a href="#title-php-弱类型总结" class="headerlink" title="title: php 弱类型总结"></a>title: php 弱类型总结</h1><h1 id="php-弱类型总结"><a href="#php-弱类型总结" class="headerlink" title="php 弱类型总结"></a>php 弱类型总结</h1><h2 id="0x01-导入"><a href="#0x01-导入" class="headerlink" title="0x01 导入"></a>0x01 导入</h2><p>PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。</p>
 <h2 id="0x02-知识介绍"><a href="#0x02-知识介绍" class="headerlink" title="0x02 知识介绍"></a>0x02 知识介绍</h2><p>php中有两种比较的符号 == 与 ===<br>=== 在进行比较的时候，会先<strong>判断两种字符串的类型是否相等</strong>，再比较<br>== 在进行比较的时候，会先<strong>将字符串类型转化成相同</strong>，再比较<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $a == $b ;</span><br><span class="line">    $a===$b ;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>如果比较一个数字和字符串或者比较涉及到数字内容的字符串，则字符串会被转换成数值并且比较按照数值来进行<br>这里明确了说如果一个数值和字符串进行比较的时候，会将字符串转换成数值<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">1</span>) <span class="comment">//false</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">0</span>) <span class="comment">//true</span></span><br><span class="line">var_dump(<span class="string">"0e123456"</span>==<span class="string">"0e4456789"</span>); <span class="comment">//true </span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>“0e123456”==”0e456789”相互比较的时候，会将0e这类字符串识别为科学技术法的数字，0的无论多少次方都是零，所以相等</p>
@@ -494,7 +494,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#php-弱类型总结"><span class="nav-number">1.</span> <span class="nav-text">php 弱类型总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-导入"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-知识介绍"><span class="nav-number">1.2.</span> <span class="nav-text">0x02 知识介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-实战"><span class="nav-number">1.3.</span> <span class="nav-text">0x03 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#md5绕过-Hash比较缺陷"><span class="nav-number">1.3.1.</span> <span class="nav-text">md5绕过(Hash比较缺陷)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json绕过"><span class="nav-number">1.3.2.</span> <span class="nav-text">json绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-search-is-array绕过"><span class="nav-number">1.3.3.</span> <span class="nav-text">array_search is_array绕过</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-一些新发现"><span class="nav-number">1.4.</span> <span class="nav-text">0x04 一些新发现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fastcoll"><span class="nav-number">1.4.1.</span> <span class="nav-text">fastcoll</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#title-php-弱类型总结"><span class="nav-number">1.</span> <span class="nav-text">title: php 弱类型总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php-弱类型总结"><span class="nav-number">2.</span> <span class="nav-text">php 弱类型总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-导入"><span class="nav-number">2.1.</span> <span class="nav-text">0x01 导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-知识介绍"><span class="nav-number">2.2.</span> <span class="nav-text">0x02 知识介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-实战"><span class="nav-number">2.3.</span> <span class="nav-text">0x03 实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#md5绕过-Hash比较缺陷"><span class="nav-number">2.3.1.</span> <span class="nav-text">md5绕过(Hash比较缺陷)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json绕过"><span class="nav-number">2.3.2.</span> <span class="nav-text">json绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-search-is-array绕过"><span class="nav-number">2.3.3.</span> <span class="nav-text">array_search is_array绕过</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-一些新发现"><span class="nav-number">2.4.</span> <span class="nav-text">0x04 一些新发现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fastcoll"><span class="nav-number">2.4.1.</span> <span class="nav-text">fastcoll</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
