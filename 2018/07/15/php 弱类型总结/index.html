@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="obolu,Obolu's Blog" />
   
-  <meta name="description" content="php 弱类型总结PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
+  <meta name="description" content="PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
 <meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP弱类型初探">
 <meta property="og:url" content="http://yoursite.com/2018/07/15/php 弱类型总结/index.html">
 <meta property="og:site_name" content="obolu&#39;blog">
-<meta property="og:description" content="php 弱类型总结PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
+<meta property="og:description" content="PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-15T04:48:00.099Z">
+<meta property="og:updated_time" content="2018-07-15T14:51:12.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP弱类型初探">
-<meta name="twitter:description" content="php 弱类型总结PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
+<meta name="twitter:description" content="PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -146,7 +146,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="php-弱类型总结"><a href="#php-弱类型总结" class="headerlink" title="php 弱类型总结"></a>php 弱类型总结</h1><p>PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。</p>
+            <p>PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。</p>
 <a id="more"></a>
 <h2 id="0x01-知识介绍"><a href="#0x01-知识介绍" class="headerlink" title="0x01 知识介绍"></a>0x01 知识介绍</h2><p>php中有两种比较的符号 == 与 ===<br>=== 在进行比较的时候，会先<strong>判断两种字符串的类型是否相等</strong>，再比较<br>== 在进行比较的时候，会先<strong>将字符串类型转化成相同</strong>，再比较<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $a == $b ;</span><br><span class="line">    $a===$b ;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>如果比较一个数字和字符串或者比较涉及到数字内容的字符串，则字符串会被转换成数值并且比较按照数值来进行<br>这里明确了说如果一个数值和字符串进行比较的时候，会将字符串转换成数值<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">1</span>) <span class="comment">//false</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">0</span>) <span class="comment">//true</span></span><br><span class="line">var_dump(<span class="string">"0e123456"</span>==<span class="string">"0e4456789"</span>); <span class="comment">//true </span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -165,7 +165,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月15日 12:48</p>
+        <p>最后更新： 2018年07月15日 22:51</p>
         <p>原始链接： <a class="post-url" href="/2018/07/15/php 弱类型总结/" title="PHP弱类型初探">http://yoursite.com/2018/07/15/php 弱类型总结/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -233,7 +233,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/15/php 弱类型总结/&title=《PHP弱类型初探》 — obolu'blog&source=php 弱类型总结PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/15/php 弱类型总结/&title=《PHP弱类型初探》 — obolu'blog&source=PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -283,7 +283,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#php-弱类型总结"><span class="post-toc-text">php 弱类型总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x01-知识介绍"><span class="post-toc-text">0x01 知识介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x02-实战"><span class="post-toc-text">0x02 实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#md5绕过-Hash比较缺陷"><span class="post-toc-text">md5绕过(Hash比较缺陷)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#json绕过"><span class="post-toc-text">json绕过</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#array-search-is-array绕过"><span class="post-toc-text">array_search is_array绕过</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x03-一些新发现"><span class="post-toc-text">0x03 一些新发现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#fastcoll"><span class="post-toc-text">fastcoll</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x01-知识介绍"><span class="post-toc-text">0x01 知识介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x02-实战"><span class="post-toc-text">0x02 实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#md5绕过-Hash比较缺陷"><span class="post-toc-text">md5绕过(Hash比较缺陷)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#json绕过"><span class="post-toc-text">json绕过</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#array-search-is-array绕过"><span class="post-toc-text">array_search is_array绕过</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0x03-一些新发现"><span class="post-toc-text">0x03 一些新发现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#fastcoll"><span class="post-toc-text">fastcoll</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
