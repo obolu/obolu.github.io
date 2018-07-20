@@ -3,23 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>利用ubuntu16搭建docker教程 | obolu&#39;blog</title>
+  <title>SOAP中的SQL注入测试 | obolu&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="obolu,Obolu's Blog" />
   
-  <meta name="description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
-<meta name="keywords" content="知识收藏">
+  <meta name="description" content="简单记录一波最近学习的小知识和踩到的坑">
+<meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用ubuntu16搭建docker教程">
-<meta property="og:url" content="http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/index.html">
+<meta property="og:title" content="SOAP中的SQL注入测试">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/Soap中SQL注入测试/index.html">
 <meta property="og:site_name" content="obolu&#39;blog">
-<meta property="og:description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
+<meta property="og:description" content="简单记录一波最近学习的小知识和踩到的坑">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T02:51:03.835Z">
+<meta property="og:image" content="https://p5.ssl.qhimg.com/t01ad5d757ca90b15b2.jpg">
+<meta property="og:image" content="http://img.5am3.com/img/180720/ggCfk7Da5D.png?imageslim">
+<meta property="og:image" content="c:/Users/OBOLU/AppData/Local/Temp/1532057783659.png">
+<meta property="og:image" content="http://img.5am3.com/img/180720/7k1CC87Del.png?imageslim">
+<meta property="og:image" content="http://img.5am3.com/img/180720/DcGE2FEaJ7.png?imageslim">
+<meta property="og:updated_time" content="2018-07-20T03:43:54.215Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用ubuntu16搭建docker教程">
-<meta name="twitter:description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
+<meta name="twitter:title" content="SOAP中的SQL注入测试">
+<meta name="twitter:description" content="简单记录一波最近学习的小知识和踩到的坑">
+<meta name="twitter:image" content="https://p5.ssl.qhimg.com/t01ad5d757ca90b15b2.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -110,14 +116,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-利用ubuntu16搭建docker教程" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Soap中SQL注入测试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      利用ubuntu16搭建docker教程
+      SOAP中的SQL注入测试
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -130,7 +136,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-07-17
+          <i class="fa fa-calendar"></i>  2018-07-20
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -146,38 +152,33 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s</p>
+            <p>简单记录一波最近学习的小知识和踩到的坑</p>
 <a id="more"></a>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h3 id="1-准备阶段"><a href="#1-准备阶段" class="headerlink" title="1.准备阶段"></a>1.准备阶段</h3><p>（1）版本检查</p>
-<p>docker需要linux版本大于3.10并且是64bit,利用uname -a检查版本</p>
-<p>（2）安装环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
-<p>ps:这里如果有软件下载提示未找到的话，可以通过修改linux下载源下载</p>
-<p>（3）添加Docker官方认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<p>提示OK成功</p>
-<p>（4）安装下载docker的软件源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br></pre></td></tr></table></figure>
-<p>（5）更新软件源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<p>（6）安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
-<p>这里有docker-ee和docker-ce和docker-engine可以选择</p>
-<p>如果安装报错提示没有找到的话，也可以从 <a href="https://download.docker.com/linux/ubuntu/dists/" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu/dists/</a>下载</p>
-<p>利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i +文件名</span><br></pre></td></tr></table></figure>
-<p>进行安装</p>
-<h3 id="2-测试阶段"><a href="#2-测试阶段" class="headerlink" title="2.测试阶段"></a>2.测试阶段</h3><p>（1）安装完成后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>如果没有报错，则安装成功</p>
-<p>附上官方教程+docker使用教程</p>
-<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package" target="_blank" rel="noopener">[官方安装教程]</a></p>
-<p><a href="http://www.runoob.com/docker/docker-hello-world.html" target="_blank" rel="noopener">docker使用教程</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><p><strong>SOAP概述</strong></p>
+<p>简单对象访问协议（SOAP）是连接或Web服务或客户端和Web服务之间的接口。SOAP通过应用层协议（如HTTP，SMTP或甚至TCP）进行操作，用于消息传输。</p>
+<p><a href="https://p5.ssl.qhimg.com/t01ad5d757ca90b15b2.jpg" target="_blank" rel="noopener"><img src="https://p5.ssl.qhimg.com/t01ad5d757ca90b15b2.jpg" alt="http://p3.qhimg.com/t018a390a8123f09261.jpg"></a></p>
+<p>​                                                                              图1 SOAP操作</p>
+</li>
+</ul>
+<p>  它是基于xml语言开发的，它使用Web服务描述语言（WSDL）来生成Web服务之间的接口。如果客户端或用户的独立应用程序想要与Web服务连接，则它需要由应用程序生成的服务端点接口（SEI）。这些接口WSDL和SEI是使用自动化工具或手动生成的，它们具有平台无关性。通用描述，发现和集成（UDDI）是Web服务可以发布关于其服务的一个目录，用户可以提交他们的查询。</p>
+<h2 id="SOAP测试"><a href="#SOAP测试" class="headerlink" title="SOAP测试"></a>SOAP测试</h2><p>平台关键内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;portType name=<span class="string">"*** Pentest ***PortType"</span>&gt;&lt;operation name=<span class="string">"get_password_by_username"</span>&gt;</span><br><span class="line">&lt;input message=<span class="string">"tns:get_password_by_usernameRequest"</span>/&gt;&lt;output message=<span class="string">"tns:get_password_by_usernameResponse"</span>/&gt;</span><br><span class="line">&lt;/operation&gt;</span><br><span class="line">&lt;/portType&gt;</span><br><span class="line">&lt;binding name=<span class="string">"*** Pentest ***Binding"</span> type=<span class="string">"tns:*** Pentest ***PortType"</span>&gt;</span><br><span class="line">&lt;soap:binding style=<span class="string">"rpc"</span> transport=<span class="string">"http://schemas.xmlsoap.org/soap/http"</span>/&gt;</span><br><span class="line">&lt;operation name=<span class="string">"get_password_by_username"</span>&gt;</span><br><span class="line">&lt;soap:operation soapAction=<span class="string">"urn:tickets_stock#get_password_by_username"</span> style=<span class="string">"rpc"</span>/&gt;</span><br><span class="line">&lt;input&gt;</span><br><span class="line">&lt;soap:body use=<span class="string">"encoded"</span> namespace=<span class="string">"urn:tickets_stock"</span> encodingStyle=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span>/&gt;</span><br><span class="line">&lt;/input&gt;</span><br><span class="line">&lt;output&gt;</span><br><span class="line">&lt;soap:body use=<span class="string">"encoded"</span> namespace=<span class="string">"urn:tickets_stock"</span> encodingStyle=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span>/&gt;</span><br><span class="line">&lt;/output&gt;</span><br><span class="line">&lt;/operation&gt;</span><br><span class="line">&lt;/binding&gt;</span><br></pre></td></tr></table></figure>
+<p>查了查soap漏洞利用，大致内容流程感觉是：1.找到有漏洞的函数 2.调用函数 3.利用漏洞</p>
+<p>这里用了一下火狐的Wizdler插件,自动生成了一个请求格式</p>
+<p><img src="http://img.5am3.com/img/180720/ggCfk7Da5D.png?imageslim" alt="mark"></p>
+<p>这个网站get_password_by_username函数作用是根据输入的用户名返回密码</p>
+<p><img src="C:\Users\OBOLU\AppData\Local\Temp\1532057783659.png" alt="1532057783659"></p>
+<p>把要注入的值后面加上*丢入sqlmap</p>
+<p><img src="http://img.5am3.com/img/180720/7k1CC87Del.png?imageslim" alt="mark"></p>
+<h2 id="踩到的坑们"><a href="#踩到的坑们" class="headerlink" title="踩到的坑们"></a>踩到的坑们</h2><p>利用AWVS发现，使用直接生成好的请求模板，会在请求头加入两列如下：</p>
+<p><img src="http://img.5am3.com/img/180720/DcGE2FEaJ7.png?imageslim" alt="mark"></p>
+<p>·····困扰了半天，这个直接在手写的请求里面不会有·····</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月17日 10:51</p>
-        <p>原始链接： <a class="post-url" href="/2018/07/17/利用ubuntu16搭建docker教程/" title="利用ubuntu16搭建docker教程">http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/</a></p>
+        <p>最后更新： 2018年07月20日 11:43</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/20/Soap中SQL注入测试/" title="SOAP中的SQL注入测试">http://yoursite.com/2018/07/20/Soap中SQL注入测试/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="obolu">
@@ -234,7 +235,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/&title=《利用ubuntu16搭建docker教程》 — obolu'blog&pic=http://yoursite.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/20/Soap中SQL注入测试/&title=《SOAP中的SQL注入测试》 — obolu'blog&pic=http://yoursite.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -244,22 +245,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/&title=《利用ubuntu16搭建docker教程》 — obolu'blog&source=尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/20/Soap中SQL注入测试/&title=《SOAP中的SQL注入测试》 — obolu'blog&source=简单记录一波最近学习的小知识和踩到的坑" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/20/Soap中SQL注入测试/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用ubuntu16搭建docker教程》 — obolu'blog&url=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SOAP中的SQL注入测试》 — obolu'blog&url=http://yoursite.com/2018/07/20/Soap中SQL注入测试/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/20/Soap中SQL注入测试/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -269,7 +270,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/07/17/利用ubuntu16搭建docker教程/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/07/20/Soap中SQL注入测试/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -281,7 +282,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/知识收藏/" class="color5">知识收藏</a>
+    <a href="/tags/web学习/" class="color1">web学习</a>
       
   </li>
 
@@ -294,26 +295,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装步骤"><span class="post-toc-text">安装步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-准备阶段"><span class="post-toc-text">1.准备阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-测试阶段"><span class="post-toc-text">2.测试阶段</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SOAP测试"><span class="post-toc-text">SOAP测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#踩到的坑们"><span class="post-toc-text">踩到的坑们</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/07/20/Soap中SQL注入测试/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          SOAP中的SQL注入测试
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/07/17/BeEF学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">xss渗透之BeEF学习</span>
+    <a href="/2018/07/17/利用ubuntu16搭建docker教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">利用ubuntu16搭建docker教程</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
