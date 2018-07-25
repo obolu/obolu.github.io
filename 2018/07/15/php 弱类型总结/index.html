@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://www.obolu.top/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://www.obolu.top">
+<meta name="author" content="obolu">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>php弱类型初探 - obolu&#39;blog</title>
+
+<meta name="keywords" content="obolu‘s blos">
+
+<meta name="description " content="潜心修炼">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="obolu">obolu</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">obolu&#39;s blog</h1>
+        <h3 class="cover-siteTitle">one coding guy</h3>
+        <p class="cover-siteDesc">一个热爱web学习的小萌新的博客</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-weibo">
+                <a href="https://weibo.com/obolu" target="_blank" title="weibo" ref="friend">
+                    <i class="fa fa-weibo"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/obolu" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/big-front-end" data-name="知识总结">知识总结</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="比赛心得">比赛心得</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="请输入关键字" />
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-07-15">2018-07-15</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">PHP弱类型初探</h2>
+            <div class="post-meta">
+                本文总共2608个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>PHP弱类型近来常出现在CTF比赛中，2018年强网杯web签到的第一题就是涉及PHP弱类型的利用。</p>
+<a id="more"></a>
+<h2 id="0x01-知识介绍"><a href="#0x01-知识介绍" class="headerlink" title="0x01 知识介绍"></a>0x01 知识介绍</h2><p>php中有两种比较的符号 == 与 ===<br>=== 在进行比较的时候，会先<strong>判断两种字符串的类型是否相等</strong>，再比较<br>== 在进行比较的时候，会先<strong>将字符串类型转化成相同</strong>，再比较<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $a == $b ;</span><br><span class="line">    $a===$b ;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果比较一个数字和字符串或者比较涉及到数字内容的字符串，则字符串会被转换成数值并且比较按照数值来进行<br>这里明确了说如果一个数值和字符串进行比较的时候，会将字符串转换成数值<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">1</span>) <span class="comment">//false</span></span><br><span class="line">var_dump(<span class="string">"admin1"</span>==<span class="number">0</span>) <span class="comment">//true</span></span><br><span class="line">var_dump(<span class="string">"0e123456"</span>==<span class="string">"0e4456789"</span>); <span class="comment">//true </span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>“0e123456”==”0e456789”相互比较的时候，会将0e这类字符串识别为科学技术法的数字，0的无论多少次方都是零，所以相等</p>
+<h2 id="0x02-实战"><a href="#0x02-实战" class="headerlink" title="0x02 实战"></a>0x02 实战</h2><h3 id="md5绕过-Hash比较缺陷"><a href="#md5绕过-Hash比较缺陷" class="headerlink" title="md5绕过(Hash比较缺陷)"></a>md5绕过(Hash比较缺陷)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'Username'</span>]) &amp;&amp; <span class="keyword">isset</span>($_GET[<span class="string">'password'</span>])) &#123;</span><br><span class="line">    $logined = <span class="keyword">true</span>;</span><br><span class="line">    $Username = $_GET[<span class="string">'Username'</span>];</span><br><span class="line">    $password = $_GET[<span class="string">'password'</span>];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> (!ctype_alpha($Username)) &#123;$logined = <span class="keyword">false</span>;&#125;</span><br><span class="line">     <span class="keyword">if</span> (!is_numeric($password) ) &#123;$logined = <span class="keyword">false</span>;&#125;</span><br><span class="line">     <span class="keyword">if</span> (md5($Username) != md5($password)) &#123;$logined = <span class="keyword">false</span>;&#125;</span><br><span class="line">     <span class="keyword">if</span> ($logined)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"successful"</span>;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">"login failed!"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>题目大意是要输入一个字符串和数字类型，并且他们的md5值相等，就可以成功执行下一步语句<br>上文提到过，0e在比较的时候会将其视作为科学计数法，所以无论0e后面是什么，0的多少次方还是0。md5(‘240610708’) == md5(‘QNKCDZO’)成功绕过!<br><strong>这里和强网杯web签到有点像</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">    <span class="keyword">if</span>($_POST[<span class="string">'param1'</span>]!=$_POST[<span class="string">'param2'</span>]&amp;&amp;md5($_POST[<span class="string">'param1'</span>])==md5($_POST[<span class="string">'param2'</span>]))</span><br><span class="line">	&#123;</span><br><span class="line">    die(<span class="string">"success!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure></p>
+<p>第一个例子意思就是输入两个数据param1和param2，可以通过输入一个字符串和一个数字类型，并且他们的MD5值相等，成功绕过</p>
+<h3 id="json绕过"><a href="#json绕过" class="headerlink" title="json绕过"></a>json绕过</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">key == $key) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"flag"</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"fail"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="keyword">echo</span> <span class="string">"~~~~"</span>;</span><br><span class="line"> &#125;</span><br><span class="line">?&amp;gt;</span><br></pre></td></tr></table></figure>
+<p> 输入一个json类型的字符串，json_decode函数解密成一个数组，判断数组中key的值是否等于 $key的值，但是$key的值我们不知道，但是可以利用0==”admin”这种形式绕过<br>最终payload message={“key”:0}</p>
+<h3 id="array-search-is-array绕过"><a href="#array-search-is-array绕过" class="headerlink" title="array_search is_array绕过"></a>array_search is_array绕过</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;?php</span><br><span class="line"><span class="keyword">if</span>(!is_array($_GET[&amp;<span class="comment">#039;test&amp;#039;]))&#123;exit();&#125;</span></span><br><span class="line">$test=$_GET[&amp;<span class="comment">#039;test&amp;#039;];</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>;$i</span><br></pre></td></tr></table></figure>
+<p>  先判断传入的是不是数组，然后循环遍历数组中的每个值，并且数组中的每个值不能和admin相等，并且将每个值转化为int类型，再判断传入的数组是否有admin，有则返回flag<br>payload test[]=0可以绕过<br><strong>这里和强网杯web签到的第二关有点类似：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line"><span class="keyword">if</span>($_POST[<span class="string">'param1'</span>]!==$_POST[<span class="string">'param2'</span>]&amp;amp;&amp;amp;md5($_POST[<span class="string">'param1'</span>])===md5($_POST[<span class="string">'param2'</span>]))&#123;</span><br><span class="line">die(<span class="string">"success!"</span>);</span><br><span class="line">&#125;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同样是输入两组数据，他们的MD5的值一样，不同的是这里利用了===，在对比的时候首先对比和数据类型，这里可以采用array_search is_array绕过：通过burp构造：<br>POST:<br>param1[]=240610708&amp;param2[]=QNKCDZO</p>
+<h2 id="0x03-一些新发现"><a href="#0x03-一些新发现" class="headerlink" title="0x03 一些新发现"></a>0x03 一些新发现</h2><p>强网杯web签到第三关：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line"><span class="keyword">if</span>((string)$_POST[<span class="string">'param1'</span>]!==(string)$_POST[<span class="string">'param2'</span>] &amp;amp;&amp;amp;md5($_POST[<span class="string">'param1'</span>])===md5($_POST[<span class="string">'param2'</span>]))&#123;</span><br><span class="line">die(<span class="string">"success!);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这里在传入param1和param2的时候，首先进行了类型强制转换为string字符串型，使得刚才介绍的利用数组的绕过行不通了，通过查阅资料得知，我国科学院院士王小云教授成功破解过MD5算法，也就是MD5碰撞，由几位密码学家编写的快速MD5碰撞生成器：</p>
+<h3 id="fastcoll"><a href="#fastcoll" class="headerlink" title="fastcoll"></a>fastcoll</h3><p>可以生成两个MD5相同的文件。通过python的urllib模块，可以将两个文件转化成URL编码。从而通过burp提交即可绕过第三关</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/web学习/">web学习</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about"  title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/app" title="App下载">App下载</a>
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br/>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '06/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
