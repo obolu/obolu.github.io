@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>利用ubuntu16搭建docker教程 | obolu&#39;blog</title>
+  <title>通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习 | obolu&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="obolu,Obolu's Blog" />
   
-  <meta name="description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
+  <meta name="description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
 <meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用ubuntu16搭建docker教程">
-<meta property="og:url" content="http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/index.html">
+<meta property="og:title" content="通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习">
+<meta property="og:url" content="http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/index.html">
 <meta property="og:site_name" content="obolu&#39;blog">
-<meta property="og:description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
+<meta property="og:description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-07-17T02:51:03.835Z">
+<meta property="og:image" content="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim">
+<meta property="og:image" content="http://img.5am3.com/img/180801/6hI5BEF25F.png?imageslim">
+<meta property="og:updated_time" content="2018-08-01T07:14:28.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用ubuntu16搭建docker教程">
-<meta name="twitter:description" content="尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s">
+<meta name="twitter:title" content="通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习">
+<meta name="twitter:description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
+<meta name="twitter:image" content="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -104,14 +107,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-利用ubuntu16搭建docker教程" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      利用ubuntu16搭建docker教程
+      通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -124,7 +127,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-07-17
+          <i class="fa fa-calendar"></i>  2018-08-01
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -140,38 +143,29 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s</p>
+            <p>暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波</p>
 <a id="more"></a>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h3 id="1-准备阶段"><a href="#1-准备阶段" class="headerlink" title="1.准备阶段"></a>1.准备阶段</h3><p>（1）版本检查</p>
-<p>docker需要linux版本大于3.10并且是64bit,利用uname -a检查版本</p>
-<p>（2）安装环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
-<p>ps:这里如果有软件下载提示未找到的话，可以通过修改linux下载源下载</p>
-<p>（3）添加Docker官方认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<p>提示OK成功</p>
-<p>（4）安装下载docker的软件源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br></pre></td></tr></table></figure>
-<p>（5）更新软件源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<p>（6）安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
-<p>这里有docker-ee和docker-ce和docker-engine可以选择</p>
-<p>如果安装报错提示没有找到的话，也可以从 <a href="https://download.docker.com/linux/ubuntu/dists/" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu/dists/</a>下载</p>
-<p>利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i +文件名</span><br></pre></td></tr></table></figure>
-<p>进行安装</p>
-<h3 id="2-测试阶段"><a href="#2-测试阶段" class="headerlink" title="2.测试阶段"></a>2.测试阶段</h3><p>（1）安装完成后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>如果没有报错，则安装成功</p>
-<p>附上官方教程+docker使用教程</p>
-<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package" target="_blank" rel="noopener">[官方安装教程]</a></p>
-<p><a href="http://www.runoob.com/docker/docker-hello-world.html" target="_blank" rel="noopener">docker使用教程</a></p>
+<h3 id="目录穿越（任意文件读取）漏洞"><a href="#目录穿越（任意文件读取）漏洞" class="headerlink" title="目录穿越（任意文件读取）漏洞"></a>目录穿越（任意文件读取）漏洞</h3><p>参考题目：百度杯2017二月-Zone</p>
+<p>首先了解了一下nginx的配置文件是/etc/nginx/nginx.conf</p>
+<p>题目URL格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://A.COM/manages/admin.php?module=index&amp;name=php</span><br></pre></td></tr></table></figure>
+<p>猜测index处可以通过../../../etc/nginx/nginx.conf读取内容</p>
+<p>(ps:原题这里过滤了../可以通过…/./绕过)</p>
+<p>读取配置文件如下：</p>
+<p><img src="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim" alt="mark"></p>
+<p>发现此处有文件包含，尝试读取/etc/nginx/sites-enabled/default </p>
+<p>读取内容如下：</p>
+<p><img src="http://img.5am3.com/img/180801/6hI5BEF25F.png?imageslim" alt="mark"></p>
+<p>注意到这里别名格式是/online-movies ，地址格式是 /movie/， 而且开启了<u>autoindex</u> </p>
+<p>多了一个” / “</p>
+<p>因此在URL+/online-movies可以访问该目录文件，同时URL+/online-movies../  可以实现目录向上级穿越</p>
+<p>最终通过任意文件下载解出flag</p>
+<p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月17日 10:51</p>
-        <p>原始链接： <a class="post-url" href="/2018/07/17/利用ubuntu16搭建docker教程/" title="利用ubuntu16搭建docker教程">http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/</a></p>
+        <p>最后更新： 2018年08月01日 15:14</p>
+        <p>原始链接： <a class="post-url" href="/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" title="通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习">http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/</a></p>
         <footer>
             <a href="http://www.obolu.top">
                 <img src="/images/logo.png" alt="HOME">
@@ -228,7 +222,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/&title=《利用ubuntu16搭建docker教程》 — obolu'blog&pic=http://www.obolu.topimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/&title=《通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习》 — obolu'blog&pic=http://www.obolu.topimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -238,22 +232,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/&title=《利用ubuntu16搭建docker教程》 — obolu'blog&source=尝试利用kali2018和kali2.0安装docker失败之后，乖乖使用ubuntu16了还是，记录一下遇到的坑s" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/&title=《通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习》 — obolu'blog&source=暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用ubuntu16搭建docker教程》 — obolu'blog&url=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/&via=http://www.obolu.top" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习》 — obolu'blog&url=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/&via=http://www.obolu.top" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -263,7 +257,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.obolu.top/2018/07/17/利用ubuntu16搭建docker教程/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -288,26 +282,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装步骤"><span class="post-toc-text">安装步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-准备阶段"><span class="post-toc-text">1.准备阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-测试阶段"><span class="post-toc-text">2.测试阶段</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目录穿越（任意文件读取）漏洞"><span class="post-toc-text">目录穿越（任意文件读取）漏洞</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/07/20/Soap中SQL注入测试/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          SOAP中的SQL注入测试
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/07/17/BeEF学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">xss渗透之BeEF学习</span>
+    <a href="/2018/07/30/CSRF攻击学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">CSRF攻击学习</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
