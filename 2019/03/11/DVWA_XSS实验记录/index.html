@@ -6,19 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>关于我 | Obolu的小博客</title>
+  <title>DVWA_XSS模块学习笔记 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="仍有待开发…… email：obolu@sc0de.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://www.obolu.top/about/index.html">
+  <meta name="description" content="存一下上课的实验笔记">
+<meta name="keywords" content="web学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DVWA_XSS模块学习笔记">
+<meta property="og:url" content="http://www.obolu.top/2019/03/11/DVWA_XSS实验记录/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="仍有待开发…… email：obolu@sc0de.com">
+<meta property="og:description" content="存一下上课的实验笔记">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-07-17T02:56:51.380Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/M5rQq2TkYDvu.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/2lgHJcCa3gXs.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/vRPif3SuFkn7.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/mgNlCohYhPf8.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/2qGkttEclJSo.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/EoqeOy4orENR.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/F9iUGCdkukUe.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/kWqbXnNSC3R5.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190311/3iSt9tiewV9K.png?imageslim">
+<meta property="og:updated_time" content="2019-03-11T10:36:20.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="仍有待开发…… email：obolu@sc0de.com">
+<meta name="twitter:title" content="DVWA_XSS模块学习笔记">
+<meta name="twitter:description" content="存一下上课的实验笔记">
+<meta name="twitter:image" content="https://img.5am3.com/images/20190311/M5rQq2TkYDvu.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -154,28 +165,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-DVWA_XSS实验记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于我
+      DVWA_XSS模块学习笔记
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2018-07-15T03:50:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+        <a href="/2019/03/11/DVWA_XSS实验记录/" class="archive-article-date">
+  	<time datetime="2019-03-11T10:35:41.976Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>仍有待开发……</p>
-<p>email：<a href="mailto:obolu@sc0de.com" target="_blank" rel="noopener">obolu@sc0de.com</a></p>
+        <p>存一下上课的实验笔记</p>
+<a id="more"></a>
+<p><strong>一、</strong>  <strong>实验目的</strong></p>
+<ol>
+<li>理解XSS漏洞原理与形成原因</li>
+<li>学习XSS的payload构造</li>
+<li>学习如何防御XSS</li>
+</ol>
+<p><strong>二、</strong>  <strong>实验原理</strong></p>
+<p>xss表示Cross Site Scripting(跨站脚本攻击)，它与SQL注入攻击类似，SQL注入攻击中以SQL语句作为用户输入，从而达到查询/修改/删除数据的目的，而在xss攻击中，通过插入恶意脚本，实现对用户游览器的控制</p>
+<p><img src="https://img.5am3.com/images/20190311/M5rQq2TkYDvu.png?imageslim" alt="mark"></p>
+<p><strong>三、</strong>  <strong>实验步骤</strong></p>
+<ol>
+<li>反射型XSS</li>
+</ol>
+<p>实验地址：<a href="http://47.94.129.246:8080/vulnerabilities/xss_r/" target="_blank" rel="noopener">http://47.94.129.246:8080/vulnerabilities/xss_r/</a></p>
+<p>环境采用DVWA(High)，关键代码：</p>
+<p><img src="https://img.5am3.com/images/20190311/2lgHJcCa3gXs.png?imageslim" alt="mark"></p>
+<p>通过正则不区分大小写匹配了script，通过观察易知，大小写双写无法绕过，但是换个标签就行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Payload:&lt;img src="1" onerror=eval("alert('xss')")&gt;&lt;/img&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190311/vRPif3SuFkn7.png?imageslim" alt="mark"></p>
+<ol>
+<li>存储性XSS</li>
+</ol>
+<p>实验地址：<a href="http://47.94.129.246:8080/vulnerabilities/xss_s/" target="_blank" rel="noopener">http://47.94.129.246:8080/vulnerabilities/xss_s/</a></p>
+<p>环境采用DVWA(High)，关键代码：</p>
+<p><img src="https://img.5am3.com/images/20190311/mgNlCohYhPf8.png?imageslim" alt="mark"></p>
+<p>发现name参数仅用正则匹配script，因此换个标签，</p>
+<p>例如<strong>Payload:</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">"http://www.baidu.com"</span> height=<span class="string">"250"</span> width=<span class="string">"300"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190311/2qGkttEclJSo.png?imageslim" alt="mark"></p>
+<p><img src="https://img.5am3.com/images/20190311/EoqeOy4orENR.png?imageslim" alt="mark"></p>
+<ol>
+<li>DOM型XSS</li>
+</ol>
+<p>实验地址：<a href="http://47.94.129.246:8080/vulnerabilities/xss_d/" target="_blank" rel="noopener">http://47.94.129.246:8080/vulnerabilities/xss_d/</a></p>
+<p>环境采用DVWA(High)，关键代码：</p>
+<p><img src="https://img.5am3.com/images/20190311/F9iUGCdkukUe.png?imageslim" alt="mark"></p>
+<p>​     可见对default参数进行判断，switch失败则返回默认值English,寻找输出点，因为DOM型和反射性的区别是输出点在DOM树里。最终找到</p>
+<p><img src="https://img.5am3.com/images/20190311/kWqbXnNSC3R5.png?imageslim" alt="mark"></p>
+<p>可见lang参数是通过default传参获得拼接到：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;option value='"</span> + lang + <span class="string">"'&gt;"</span> + <span class="built_in">decodeURI</span>(lang) + <span class="string">"&lt;/option&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">构造payload:English#&lt;script&gt;alert(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p> 原理：URL中#号之后的内容，不会被提交到服务器，可以直接与浏览器进行交互</p>
+<p><img src="https://img.5am3.com/images/20190311/3iSt9tiewV9K.png?imageslim" alt="mark"></p>
+<p><strong>四、</strong>  <strong>实验思考</strong></p>
+<ol>
+<li>关于XSS防御</li>
+</ol>
+<p>思路：将容易导致XSS攻击的边角字符替换成全角字符，另外对于每一个输入，在客户端和服务器端还要进行各种验证，验证是否合法字符，长度是否合法，格式是否正确。尽量使用白名单</p>
+<p>针对cookie使用HttpOnly，使用浏览器自带的XSS-filter</p>
+<ol>
+<li>使用XSS平台</li>
+</ol>
+<p>诸如<a href="http://www.xsspt.com" target="_blank" rel="noopener">www.xsspt.com</a>类似网站，或者自己搭建</p>
+<p>项目地址：<a href="https://github.com/firesunCN/BlueLotus_XSSReceiver" target="_blank" rel="noopener">https://github.com/firesunCN/BlueLotus_XSSReceiver</a></p>
+<p>用来接收存储型XSS的一些被攻击者信息</p>
+<ol>
+<li>XSS的一些高级利用</li>
+</ol>
+<p>配合一些CSRF批量可以实现批量博客关注或者一些恶意请求</p>
+<p>通过存储型XSS可以实现弹框报错提示登陆超时，然后重新渲染登陆页面，实现用户名密码收集，此方法可以绕过HttpOnly不能直接得到COOKIE。</p>
 
       
 
@@ -205,7 +276,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/知识总结//" class="article-tag-list-link color5">知识总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -255,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/03/11/DVWA_XSS实验记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,6 +360,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/09/hgame2019的一些记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hgame2019的一些记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -285,6 +388,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -307,7 +420,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
