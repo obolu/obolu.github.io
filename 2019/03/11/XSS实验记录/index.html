@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>DVWA_XSS模块学习笔记 | Obolu的小博客</title>
+  <title>XSS学习笔记 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="存一下上课的实验笔记">
 <meta name="keywords" content="web学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DVWA_XSS模块学习笔记">
-<meta property="og:url" content="http://www.obolu.top/2019/03/11/DVWA_XSS实验记录/index.html">
+<meta property="og:title" content="XSS学习笔记">
+<meta property="og:url" content="http://www.obolu.top/2019/03/11/XSS实验记录/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
 <meta property="og:description" content="存一下上课的实验笔记">
 <meta property="og:locale" content="zh-cn">
@@ -25,9 +25,9 @@
 <meta property="og:image" content="https://img.5am3.com/images/20190311/F9iUGCdkukUe.png?imageslim">
 <meta property="og:image" content="https://img.5am3.com/images/20190311/kWqbXnNSC3R5.png?imageslim">
 <meta property="og:image" content="https://img.5am3.com/images/20190311/3iSt9tiewV9K.png?imageslim">
-<meta property="og:updated_time" content="2019-03-11T10:36:20.676Z">
+<meta property="og:updated_time" content="2019-03-20T13:07:34.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DVWA_XSS模块学习笔记">
+<meta name="twitter:title" content="XSS学习笔记">
 <meta name="twitter:description" content="存一下上课的实验笔记">
 <meta name="twitter:image" content="https://img.5am3.com/images/20190311/M5rQq2TkYDvu.png?imageslim">
   
@@ -165,19 +165,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-DVWA_XSS实验记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-XSS实验记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      DVWA_XSS模块学习笔记
+      XSS学习笔记
     </h1>
   
 
         
-        <a href="/2019/03/11/DVWA_XSS实验记录/" class="archive-article-date">
+        <a href="/2019/03/11/XSS实验记录/" class="archive-article-date">
   	<time datetime="2019-03-11T10:35:41.976Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11</time>
 </a>
         
@@ -204,7 +204,7 @@
 <p>环境采用DVWA(High)，关键代码：</p>
 <p><img src="https://img.5am3.com/images/20190311/2lgHJcCa3gXs.png?imageslim" alt="mark"></p>
 <p>通过正则不区分大小写匹配了script，通过观察易知，大小写双写无法绕过，但是换个标签就行</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Payload:&lt;img src="1" onerror=eval("alert('xss')")&gt;&lt;/img&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Payload:<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1"</span> <span class="attr">onerror</span>=<span class="string">eval(</span>"<span class="attr">alert</span>('<span class="attr">xss</span>')")&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p><img src="https://img.5am3.com/images/20190311/vRPif3SuFkn7.png?imageslim" alt="mark"></p>
 <ol>
 <li>存储性XSS</li>
@@ -348,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/03/11/DVWA_XSS实验记录/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/03/11/XSS实验记录/" alt="微信分享二维码">
     </div>
 </div>
 
