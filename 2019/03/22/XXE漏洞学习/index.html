@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://www.obolu.top">
   <title>XXE漏洞学习 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文章简介">
+  <meta name="description" content="针对XML的一些原理和XXE漏洞利用方式的总结">
 <meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XXE漏洞学习">
 <meta property="og:url" content="http://www.obolu.top/2019/03/22/XXE漏洞学习/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="文章简介">
+<meta property="og:description" content="针对XML的一些原理和XXE漏洞利用方式的总结">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://img.5am3.com/images/20190322/C53OnWlwVr9P.png?imageslim">
-<meta property="og:updated_time" content="2019-03-22T01:40:41.691Z">
+<meta property="og:updated_time" content="2019-03-22T01:43:38.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XXE漏洞学习">
-<meta name="twitter:description" content="文章简介">
+<meta name="twitter:description" content="针对XML的一些原理和XXE漏洞利用方式的总结">
 <meta name="twitter:image" content="https://img.5am3.com/images/20190322/C53OnWlwVr9P.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
@@ -177,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>文章简介</p>
+        <p>针对XML的一些原理和XXE漏洞利用方式的总结</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前也是在一些比赛中利用过XXE的一些payload,大致知道一点点是因为上传了恶意的XML文件导致文件读取漏洞，一直没做总结，今天正好总结一下原理和利用方法。</p>
 <h2 id="XML是什么？"><a href="#XML是什么？" class="headerlink" title="XML是什么？"></a>XML是什么？</h2><p>PS:因为XXE漏洞就是XML外部实体注入，如果web应用时通过用户上传处理XML文件或者POST请求时，通过构造恶意内容，就可能导致XXE漏洞，常见危害：任意文件读取、系统命令执行、内网端口探测、攻击内网网站 。</p>
