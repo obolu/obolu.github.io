@@ -6,29 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>xss渗透之BeEF学习 | Obolu的小博客</title>
+  <title>Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="keywords" content="web学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="xss渗透之BeEF学习">
-<meta property="og:url" content="http://www.obolu.top/2018/07/17/BeEF学习/index.html">
+  <meta name="description" content="潜心修炼">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Obolu的小博客">
+<meta property="og:url" content="http://www.obolu.top/page/4/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
+<meta property="og:description" content="潜心修炼">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/h415JmF155.png?imageslim">
-<meta property="og:updated_time" content="2018-07-17T03:38:11.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xss渗透之BeEF学习">
-<meta name="twitter:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="twitter:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
+<meta name="twitter:title" content="Obolu的小博客">
+<meta name="twitter:description" content="潜心修炼">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -164,187 +153,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BeEF学习" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      xss渗透之BeEF学习
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/15/hello-world/">HEXO初体验</a>
     </h1>
   
 
         
-        <a href="/2018/07/17/BeEF学习/" class="archive-article-date">
-  	<time datetime="2018-07-17T02:34:22.153Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
+        <a href="/2018/07/15/hello-world/" class="archive-article-date">
+  	<time datetime="2018-07-15T02:49:43.982Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</p>
-</li>
-<li><p>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</p>
-</li>
-<li><p>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</p>
-</li>
-<li><p>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</p>
-<a id="more"></a>
-</li>
-</ul>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</li>
-<li>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</li>
-<li>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</li>
-<li>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</li>
-</ul>
-<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install beef-xss</span><br><span class="line">下载安装，这里安装到了/usr/share文件夹下</span><br><span class="line">进入安装文件下输入./beef启动</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim" alt="mark"></p>
-<p>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br>通过操作机打开UI URL，默认账号密码为beef</p>
-<p><img src="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim" alt="mark"></p>
-<p>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim" alt="mark"><br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim" alt="mark"><br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用</p>
-<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2><p>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim" alt="mark"><br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim" alt="mark"><br>输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
-<p>启动postgresql服务。输入命令“msfdb init”,初始化数据库。<br>1.8 在终端中输入“msfconsole”启动metasploit模块,输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load msgrpc ServerHost=192.168.1.2 Pass=abc123</span><br></pre></td></tr></table></figure>
-<p>进入beef安装目录，启动beef<br>Ps：这里必须先开msf，再开beef，才能在beef下用msf，也就是说两者开着一起工作！<br><img src="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim" alt="mark"></p>
-<p>PS：例如get cookie<br><img src="http://img.5am3.com/img/180717/h415JmF155.png?imageslim" alt="mark"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BeEF：The Browser Exploitation Framework 的缩写，意在通过一些手段，控制对方的浏览器。<br>里面集成了很多模块，能够获取很多东西，有cookie，浏览器名字，版本，插件，是否支持java，vb，flash等，感觉很神器的一个工具，还可以通过组合metasploit自动化攻击<br>一些关于BeEF的文章:<br><a href="https://blog.csdn.net/emaste_r/article/details/17091067" title="初探BeEF(有自动化攻击IE6实例)" target="_blank" rel="noopener">初探BeEF(有自动化攻击IE6实例)</a><br><a href="https://www.cnblogs.com/xuanhun/p/4203143.html" title="kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）" target="_blank" rel="noopener">kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）</a></p>
+        <p>hello world！</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/知识总结//" class="article-tag-list-link color5">知识总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/15/hello-world/">展开全文 >></a>
+        </p>
+      
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2018/07/17/BeEF学习/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/17/利用ubuntu16搭建docker教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用ubuntu16搭建docker教程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/17/beef结合metasploit初试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">xss渗透之利用beef结合metasploit初试</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -364,14 +216,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -394,8 +244,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

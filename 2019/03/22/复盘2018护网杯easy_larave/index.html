@@ -6,29 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>xss渗透之BeEF学习 | Obolu的小博客</title>
+  <title>复盘2018护网杯easy_laravel | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="keywords" content="web学习">
+  <meta name="description" content="文章简介">
+<meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xss渗透之BeEF学习">
-<meta property="og:url" content="http://www.obolu.top/2018/07/17/BeEF学习/index.html">
+<meta property="og:title" content="复盘2018护网杯easy_laravel">
+<meta property="og:url" content="http://www.obolu.top/2019/03/22/复盘2018护网杯easy_larave/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
+<meta property="og:description" content="文章简介">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/h415JmF155.png?imageslim">
-<meta property="og:updated_time" content="2018-07-17T03:38:11.144Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190322/rrh6zGCJRRUn.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190322/2DwxkoygUaT1.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/rLMWu1JqnrqS.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/D4U03xN1n3EG.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/IAjkjpVhOOl8.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/bYDCudxtbFUL.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/mV06xKckFKtx.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/WpC3ohUW7Vku.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/kwl4eGgtg2Qb.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/LWo0x532nx5H.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/3WR7apBA76q2.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/cBD9fsTDmn2B.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190326/bexStac2PIt5.png?imageslim">
+<meta property="og:updated_time" content="2019-03-26T08:49:23.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xss渗透之BeEF学习">
-<meta name="twitter:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="twitter:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
+<meta name="twitter:title" content="复盘2018护网杯easy_laravel">
+<meta name="twitter:description" content="文章简介">
+<meta name="twitter:image" content="https://img.5am3.com/images/20190322/rrh6zGCJRRUn.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -164,55 +169,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BeEF学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-复盘2018护网杯easy_larave" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      xss渗透之BeEF学习
+      复盘2018护网杯easy_laravel
     </h1>
   
 
         
-        <a href="/2018/07/17/BeEF学习/" class="archive-article-date">
-  	<time datetime="2018-07-17T02:34:22.153Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
+        <a href="/2019/03/22/复盘2018护网杯easy_larave/" class="archive-article-date">
+  	<time datetime="2019-03-22T01:34:02.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</p>
-</li>
-<li><p>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</p>
-</li>
-<li><p>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</p>
-</li>
-<li><p>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</p>
+        <p>文章简介</p>
 <a id="more"></a>
-</li>
-</ul>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</li>
-<li>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</li>
-<li>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</li>
-<li>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</li>
-</ul>
-<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install beef-xss</span><br><span class="line">下载安装，这里安装到了/usr/share文件夹下</span><br><span class="line">进入安装文件下输入./beef启动</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim" alt="mark"></p>
-<p>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br>通过操作机打开UI URL，默认账号密码为beef</p>
-<p><img src="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim" alt="mark"></p>
-<p>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim" alt="mark"><br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim" alt="mark"><br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用</p>
-<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2><p>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim" alt="mark"><br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim" alt="mark"><br>输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
-<p>启动postgresql服务。输入命令“msfdb init”,初始化数据库。<br>1.8 在终端中输入“msfconsole”启动metasploit模块,输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load msgrpc ServerHost=192.168.1.2 Pass=abc123</span><br></pre></td></tr></table></figure>
-<p>进入beef安装目录，启动beef<br>Ps：这里必须先开msf，再开beef，才能在beef下用msf，也就是说两者开着一起工作！<br><img src="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim" alt="mark"></p>
-<p>PS：例如get cookie<br><img src="http://img.5am3.com/img/180717/h415JmF155.png?imageslim" alt="mark"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BeEF：The Browser Exploitation Framework 的缩写，意在通过一些手段，控制对方的浏览器。<br>里面集成了很多模块，能够获取很多东西，有cookie，浏览器名字，版本，插件，是否支持java，vb，flash等，感觉很神器的一个工具，还可以通过组合metasploit自动化攻击<br>一些关于BeEF的文章:<br><a href="https://blog.csdn.net/emaste_r/article/details/17091067" title="初探BeEF(有自动化攻击IE6实例)" target="_blank" rel="noopener">初探BeEF(有自动化攻击IE6实例)</a><br><a href="https://www.cnblogs.com/xuanhun/p/4203143.html" title="kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）" target="_blank" rel="noopener">kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为什么会复盘去年的题嘞，因为今年寒假正好碰到个laravel的题，听说当初护网杯有一个出的很棒的，而且还有Dockerfile可以用。遂复现一下….</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/sco4x0/huwangbei2018_easy_laravel</span><br><span class="line">docker build -f Dockerfile -t &apos;hwb_easyweb&apos; .</span><br></pre></td></tr></table></figure>
+<p>这里有个小坑(很迷，有的环境好像可以直接build)，docker build最后加一个空格和英文的.<img src="https://img.5am3.com/images/20190322/rrh6zGCJRRUn.png?imageslim" alt="mark"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行环境</span><br><span class="line">docker run -id --name &apos;my_easyweb&apos; -m &apos;1G&apos; --network=&apos;bridge&apos; -p &apos;8080&apos;:80 &apos;hwb_easyweb&apos;</span><br><span class="line">进入容器</span><br><span class="line"> docker exec -it &apos;my_easyweb&apos; /bin/bash</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190322/2DwxkoygUaT1.png?imageslim" alt="mark"></p>
+<p>这里使用低权限用户运行docker </p>
+<h2 id="开始做题"><a href="#开始做题" class="headerlink" title="开始做题"></a>开始做题</h2><h3 id="通过注入登陆admin"><a href="#通过注入登陆admin" class="headerlink" title="通过注入登陆admin"></a>通过注入登陆admin</h3><p>首先看一下网站的路由信息，Laravel的路由信息一般存在/routes/web.php中</p>
+<p><img src="https://img.5am3.com/images/20190326/rLMWu1JqnrqS.png?imageslim" alt="mark"></p>
+<p>得知flag在FlagController下面的showFlag方法里</p>
+<p>首先注册登录走一下流程，访问/flag发现302跳转了</p>
+<p><img src="https://img.5am3.com/images/20190326/D4U03xN1n3EG.png?imageslim" alt="mark"></p>
+<p>开始代码审计：查阅资料发现laravel的http目录存着网站核心代码</p>
+<p><img src="https://img.5am3.com/images/20190326/IAjkjpVhOOl8.png?imageslim" alt="mark"></p>
+<p>发现查看flag需要admin用户</p>
+<p><img src="https://img.5am3.com/images/20190326/bYDCudxtbFUL.png?imageslim" alt="mark"></p>
+<p>发现疑点1：admin邮箱</p>
+<p><img src="https://img.5am3.com/images/20190326/mV06xKckFKtx.png?imageslim" alt="mark"></p>
+<p>发现疑点2：note根据用户名查询</p>
+<p><img src="https://img.5am3.com/images/20190326/WpC3ohUW7Vku.png?imageslim" alt="mark"></p>
+<p>这个网站还有个忘记密码重置密码的功能，大致可以确定是利用SQL读取admin密码或者其他信息修改密码，登陆admin查看flag。</p>
+<p>抓包发现重置密码需要token和email</p>
+<p><img src="https://img.5am3.com/images/20190326/kwl4eGgtg2Qb.png?imageslim" alt="mark"></p>
+<p>这里查阅一下laravel源码，参考<a href="https://www.jb51.net/article/135296.htm" target="_blank" rel="noopener">Laravel重置密码实现</a></p>
+<p>得知，重置密码需要访问</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/password/reset/&lt;token&gt;的链接</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190326/LWo0x532nx5H.png?imageslim" alt="mark"></p>
+<p>通过注入得到admin的token，payload:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test' union <span class="keyword">select</span> <span class="number">1</span>,(<span class="keyword">select</span> token <span class="keyword">from</span> password_resets <span class="keyword">where</span> email=<span class="string">'admin@qvq.im'</span>),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>#</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190326/3WR7apBA76q2.png?imageslim" alt="mark"></p>
+<p>进入admin用户</p>
+<p><img src="https://img.5am3.com/images/20190326/cBD9fsTDmn2B.png?imageslim" alt="mark"></p>
+<h3 id="Blade模板缓存"><a href="#Blade模板缓存" class="headerlink" title="Blade模板缓存"></a>Blade模板缓存</h3><p>Blade 是 Laravel 提供的一个简单而又强大的模板引擎。和其他流行的 PHP 模板引擎不同，Blade 并不限制你在视图中使用原生 PHP 代码。所有 Blade 视图文件都将被编译成原生的 PHP 代码并缓存起来，除非它被修改，否则不会重新编译，这就意味着 Blade 基本上不会给你的应用增加任何负担。Blade 视图文件使用 .blade.php 作为文件扩展名，被存放在 resources/views 目录。(感觉这里有点类似博客统一网站刷新慢吧)</p>
+<p>所以当我们修改了flag的balde模板但是还没有编译使其渲染出新的flag页面，其页面还是没修改时的那个缓存</p>
+<p>（如果平时有做laravel开发应该能一下意识到这个问题……orz，所以做web鸡很重要的还是要把开发学好）</p>
+<p>所以我们要使新的flag.blade模板渲染出来，就要去删除flag页面旧的缓存，再次访问flag页面的时候就会去重新编译新的flag页面</p>
+<p>引用出题人的话，就是说：</p>
+<blockquote>
+<p>在 laravel 中，模板文件是存放在 resources/views 中的，然后会被编译放到 storage/framework/views中，而编译后的文件存在过期的判断。</p>
+</blockquote>
+<p>要想删除旧的缓存页面，要做到两点：</p>
+<p>•           找到一个删除方法</p>
+<p>•           知道缓存页面文件位置和名字</p>
+<p>这里参考了两种思路(膜)</p>
+<p><a href="https://xz.aliyun.com/t/2901" target="_blank" rel="noopener">非预期getshell</a> 参考链接：<a href="https://paper.seebug.org/680/" target="_blank" rel="noopener">https://paper.seebug.org/680/</a></p>
+<p><a href="http://shaobaobaoer.cn/archives/696/huwangbei-2018-easy-laravel#_blade" target="_blank" rel="noopener">传文件删缓存</a></p>
+<p>phar文件会以序列化的形式存储用户自定义的meta-data这一特性，该方法在<strong>文件系统函数</strong>参数可控的情况下，配合<strong>phar://伪协议</strong>，可以不依赖unserialize()直接进行反序列化操作。<br><img src="https://img.5am3.com/images/20190326/bexStac2PIt5.png?imageslim" alt="mark"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_(:з」∠)_感觉这个还需要改天试试，猛一看不是很明白.....</span><br></pre></td></tr></table></figure>
+<p>借着这个题学习一下代码审计的一些基础吧</p>
 
       
 
@@ -247,7 +273,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识收藏</a>
         		</li>
       		
 		</ul>
@@ -314,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2018/07/17/BeEF学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/03/22/复盘2018护网杯easy_larave/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +354,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/17/利用ubuntu16搭建docker教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用ubuntu16搭建docker教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/17/beef结合metasploit初试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">xss渗透之利用beef结合metasploit初试</div>
+    <a href="/2019/03/22/XXE漏洞学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XXE漏洞学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
