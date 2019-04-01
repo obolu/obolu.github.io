@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>关于我 | Obolu的小博客</title>
+  <title>通过实例学习反序列化_待补充 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="仍有待开发…… email：obolu@sc0de.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://www.obolu.top/about/index.html">
+  <meta name="description" content="复现vulhub以及总结">
+<meta name="keywords" content="知识收藏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过实例学习反序列化_待补充">
+<meta property="og:url" content="http://www.obolu.top/2019/04/01/通过实例学习反序列化/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="仍有待开发…… email：obolu@sc0de.com">
+<meta property="og:description" content="复现vulhub以及总结">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-07-17T02:56:51.380Z">
+<meta property="og:updated_time" content="2019-04-01T03:13:43.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="仍有待开发…… email：obolu@sc0de.com">
+<meta name="twitter:title" content="通过实例学习反序列化_待补充">
+<meta name="twitter:description" content="复现vulhub以及总结">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -154,28 +155,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-通过实例学习反序列化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于我
+      通过实例学习反序列化_待补充
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2018-07-15T03:50:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+        <a href="/2019/04/01/通过实例学习反序列化/" class="archive-article-date">
+  	<time datetime="2019-04-01T03:12:48.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>仍有待开发……</p>
-<p>email：<a href="mailto:obolu@sc0de.com" target="_blank" rel="noopener">obolu@sc0de.com</a></p>
+        <p>复现vulhub以及总结</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="serialize和unserialize函数"><a href="#serialize和unserialize函数" class="headerlink" title="serialize和unserialize函数"></a>serialize和unserialize函数</h3><p>这两个是序列化和反序列化PHP中数据的常用函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="keyword">array</span>(<span class="string">'a'</span> =&gt; <span class="string">'Apple'</span> ,<span class="string">'b'</span> =&gt; <span class="string">'banana'</span> , <span class="string">'c'</span> =&gt; <span class="string">'Coconut'</span>); </span><br><span class="line"><span class="comment">//序列化数组</span></span><br><span class="line">$s = serialize($a);</span><br><span class="line"><span class="keyword">echo</span> $s;</span><br><span class="line"><span class="comment">//输出结果：a:3:&#123;s:1:"a";s:5:"Apple";s:1:"b";s:6:"banana";s:1:"c";s:7:"Coconut";&#125;</span></span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line">$o = unserialize($s);</span><br><span class="line">print_r($o);</span><br><span class="line"><span class="comment">//输出结果 Array ( [a] =&gt; Apple [b] =&gt; banana [c] =&gt; Coconut ) </span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="一道CTF小例子"><a href="#一道CTF小例子" class="headerlink" title="一道CTF小例子"></a>一道CTF小例子</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">just4fun</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $enter;</span><br><span class="line">    <span class="keyword">var</span> $secret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'pass'</span>])) &#123;</span><br><span class="line">    $pass = $_GET[<span class="string">'pass'</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(get_magic_quotes_gpc())&#123;</span><br><span class="line">        $pass=stripslashes($pass);</span><br><span class="line">    &#125;<span class="comment">//添加了一下转义</span></span><br><span class="line"></span><br><span class="line">    $o = unserialize($pass);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($o) &#123;</span><br><span class="line">        $o-&gt;secret = <span class="string">"*"</span>;</span><br><span class="line">        <span class="keyword">if</span> ($o-&gt;secret === $o-&gt;enter)</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"Congratulation! Here is my secret: "</span>.$o-&gt;secret;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"Oh no... You can't fool me"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">echo</span> <span class="string">"are you trolling?"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>看源码分析需要保证序列化过后的字符串，并且类中的变量始终保持相同</p>
+<p>把secret的地址赋值给enter，enter=&amp;secret</p>
+<p>PAYLOAD：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">just4fun</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $enter;</span><br><span class="line">    <span class="keyword">var</span> $secret;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">just4fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;enter=&amp;<span class="keyword">$this</span>-&gt;secret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="keyword">new</span> just4fun());</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//输出结果： O:8:"just4fun":2:&#123;s:5:"enter";N;s:6:"secret";R:2;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Phpmyadmin中setup-php反序列化漏洞"><a href="#Phpmyadmin中setup-php反序列化漏洞" class="headerlink" title="Phpmyadmin中setup.php反序列化漏洞"></a>Phpmyadmin中setup.php反序列化漏洞</h3><h3 id="Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）"><a href="#Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）" class="headerlink" title="Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）"></a>Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）</h3><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h3 id="JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）"><a href="#JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）" class="headerlink" title="JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）"></a>JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）</h3><h3 id="fastjson-反序列化导致任意命令执行漏洞"><a href="#fastjson-反序列化导致任意命令执行漏洞" class="headerlink" title="fastjson 反序列化导致任意命令执行漏洞"></a>fastjson 反序列化导致任意命令执行漏洞</h3><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h3 id="Python-unpickle-造成任意命令执行漏洞"><a href="#Python-unpickle-造成任意命令执行漏洞" class="headerlink" title="Python unpickle 造成任意命令执行漏洞"></a>Python unpickle 造成任意命令执行漏洞</h3><p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/zhangyue-python-web-code-execute.html" target="_blank" rel="noopener">某站Python漏洞挖掘</a></p>
+<p>….vulhub下载有一丢丢慢，稍后再补充</p>
 
       
 
@@ -205,7 +216,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识收藏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/知识总结//" class="article-tag-list-link color5">知识总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -255,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/04/01/通过实例学习反序列化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,6 +300,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/01/通过TCTF的一道题了解一下绕过 disable_functions & open_basedir思路/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过TCTF的一道题了解一下绕过 disable_functions &amp; open_basedir思路</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -285,6 +328,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -307,7 +360,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
