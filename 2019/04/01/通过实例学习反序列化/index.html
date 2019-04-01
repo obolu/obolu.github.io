@@ -6,20 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>通过实例学习反序列化_待补充 | Obolu的小博客</title>
+  <title>通过实例学习反序列化 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="复现vulhub以及总结">
 <meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过实例学习反序列化_待补充">
+<meta property="og:title" content="通过实例学习反序列化">
 <meta property="og:url" content="http://www.obolu.top/2019/04/01/通过实例学习反序列化/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
 <meta property="og:description" content="复现vulhub以及总结">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-01T03:13:43.378Z">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/EACRwEpvlKlR.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/cUO01L7AdNmU.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/r4KmuoyyLj8b.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/M0LoCmACICVH.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/lBdVHxwI685s.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/UFbdeULMauuU.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/yqlrgvWY6f0k.png?imageslim">
+<meta property="og:image" content="https://img.5am3.com/images/20190401/g6hzUL9tQirc.png?imageslim">
+<meta property="og:updated_time" content="2019-04-01T10:42:18.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过实例学习反序列化_待补充">
+<meta name="twitter:title" content="通过实例学习反序列化">
 <meta name="twitter:description" content="复现vulhub以及总结">
+<meta name="twitter:image" content="https://img.5am3.com/images/20190401/EACRwEpvlKlR.png?imageslim">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -162,7 +171,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      通过实例学习反序列化_待补充
+      通过实例学习反序列化
     </h1>
   
 
@@ -185,8 +194,30 @@
 <p>把secret的地址赋值给enter，enter=&amp;secret</p>
 <p>PAYLOAD：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">just4fun</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $enter;</span><br><span class="line">    <span class="keyword">var</span> $secret;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">just4fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;enter=&amp;<span class="keyword">$this</span>-&gt;secret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="keyword">new</span> just4fun());</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//输出结果： O:8:"just4fun":2:&#123;s:5:"enter";N;s:6:"secret";R:2;&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Phpmyadmin中setup-php反序列化漏洞"><a href="#Phpmyadmin中setup-php反序列化漏洞" class="headerlink" title="Phpmyadmin中setup.php反序列化漏洞"></a>Phpmyadmin中setup.php反序列化漏洞</h3><h3 id="Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）"><a href="#Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）" class="headerlink" title="Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）"></a>Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）</h3><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h3 id="JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）"><a href="#JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）" class="headerlink" title="JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）"></a>JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）</h3><h3 id="fastjson-反序列化导致任意命令执行漏洞"><a href="#fastjson-反序列化导致任意命令执行漏洞" class="headerlink" title="fastjson 反序列化导致任意命令执行漏洞"></a>fastjson 反序列化导致任意命令执行漏洞</h3><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h3 id="Python-unpickle-造成任意命令执行漏洞"><a href="#Python-unpickle-造成任意命令执行漏洞" class="headerlink" title="Python unpickle 造成任意命令执行漏洞"></a>Python unpickle 造成任意命令执行漏洞</h3><p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/zhangyue-python-web-code-execute.html" target="_blank" rel="noopener">某站Python漏洞挖掘</a></p>
-<p>….vulhub下载有一丢丢慢，稍后再补充</p>
+<h3 id="PHPmyadmin中setup-php反序列化漏洞"><a href="#PHPmyadmin中setup-php反序列化漏洞" class="headerlink" title="PHPmyadmin中setup.php反序列化漏洞"></a>PHPmyadmin中setup.php反序列化漏洞</h3><p>参考链接：<a href="https://vulhub.org/#/environments/phpmyadmin/WooYun-2016-199433/" target="_blank" rel="noopener">phpmyadmin反序列化</a></p>
+<p>环境搭建：这里是用的是ph牛的vulhub，使用docker-compose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开启命令，cd到该目录，执行：</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>PAYLOAD:<img src="https://img.5am3.com/images/20190401/EACRwEpvlKlR.png?imageslim" alt="mark"></p>
+<p>这里直接进docker看下源码：docker exec -it 386947279dbb /bin/bash</p>
+<p>源码发现对configuration参数的反序列化操作</p>
+<p><img src="https://img.5am3.com/images/20190401/cUO01L7AdNmU.png?imageslim" alt="mark"></p>
+<p>这个漏洞整体思路是：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setup.php-&gt;common.lib.php-&gt;Config.class.php-&gt;__wakeup()-&gt;load()-&gt;eval();</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.5am3.com/images/20190401/r4KmuoyyLj8b.png?imageslim" alt="mark"></p>
+<p>首先在setup.php中，引用了common.lib.php</p>
+<p><img src="https://img.5am3.com/images/20190401/M0LoCmACICVH.png?imageslim" alt="mark"></p>
+<p>在common.lib.php中再次引用了四个文件，这里看Config.class.php，发现__wakeup方法</p>
+<p><img src="https://img.5am3.com/images/20190401/lBdVHxwI685s.png?imageslim" alt="mark"></p>
+<p>当对一个对象序列化时，php就会调用<strong>sleep方法（如果存在的话），在反序列化时，php就会调用</strong>wakeup方法（如果存在的话）。</p>
+<p><img src="https://img.5am3.com/images/20190401/UFbdeULMauuU.png?imageslim" alt="mark"></p>
+<p><img src="https://img.5am3.com/images/20190401/yqlrgvWY6f0k.png?imageslim" alt="mark"></p>
+<p>POC中使用的configuration=O:10:”PMA_Config”:1:{s:6:”source”,s:11:”/etc/passwd”;}</p>
+<p><img src="https://img.5am3.com/images/20190401/g6hzUL9tQirc.png?imageslim" alt="mark"></p>
+<p>调用过程：PMA_Config——→__wake调用load()——→load()函数包含eval进行文件读取</p>
+<h3 id="Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）"><a href="#Joomla-3-4-5-反序列化漏洞（CVE-2015-8562）" class="headerlink" title="Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）"></a>Joomla 3.4.5 反序列化漏洞（CVE-2015-8562）</h3><p>参考链接：<a href="https://vulhub.org/#/environments/joomla/CVE-2015-8562/" target="_blank" rel="noopener">Joomla反序列化</a></p>
+<h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h3 id="JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）"><a href="#JBoss-5-x-6-x-反序列化漏洞（CVE-2017-12149）" class="headerlink" title="JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）"></a>JBoss 5.x/6.x 反序列化漏洞（CVE-2017-12149）</h3><p>参考链接：<a href="https://vulhub.org/#/environments/jboss/CVE-2017-12149/" target="_blank" rel="noopener">JBoss反序列化</a></p>
+<h3 id="fastjson-反序列化导致任意命令执行漏洞"><a href="#fastjson-反序列化导致任意命令执行漏洞" class="headerlink" title="fastjson 反序列化导致任意命令执行漏洞"></a>fastjson 反序列化导致任意命令执行漏洞</h3><p>参考链接：<a href="https://vulhub.org/#/environments/fastjson/vuln/" target="_blank" rel="noopener">fastjso反序列化n</a></p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h3 id="Python-unpickle-造成任意命令执行漏洞"><a href="#Python-unpickle-造成任意命令执行漏洞" class="headerlink" title="Python unpickle 造成任意命令执行漏洞"></a>Python unpickle 造成任意命令执行漏洞</h3><p>参考链接：<a href="https://www.leavesongs.com/PENETRATION/zhangyue-python-web-code-execute.html" target="_blank" rel="noopener">某站Python漏洞挖掘</a></p>
 
       
 
@@ -430,15 +461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">writeup</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
             
             <div class="clearfix"></div>
