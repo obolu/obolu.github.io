@@ -204,7 +204,7 @@
 <p>环境采用DVWA(High)，关键代码：</p>
 <p><img src="https://img.5am3.com/images/20190311/2lgHJcCa3gXs.png?imageslim" alt="mark"></p>
 <p>通过正则不区分大小写匹配了script，通过观察易知，大小写双写无法绕过，但是换个标签就行</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Payload:<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1"</span> <span class="attr">onerror</span>=<span class="string">eval(</span>"<span class="attr">alert</span>('<span class="attr">xss</span>')")&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Payload:&lt;img src="1" onerror=eval("alert('xss')")&gt;&lt;/img&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.5am3.com/images/20190311/vRPif3SuFkn7.png?imageslim" alt="mark"></p>
 <ol>
 <li>存储性XSS</li>
@@ -499,15 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
               </li>
             
             <div class="clearfix"></div>
