@@ -16,12 +16,13 @@
 <meta property="og:site_name" content="Obolu的小博客">
 <meta property="og:description" content="记录一下踩得坑">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-38175e3a321d7664.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-10T02:32:55.020Z">
+<meta property="og:updated_time" content="2019-04-10T03:53:15.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="物理机装linux双系统做沙箱搭建过程记录">
 <meta name="twitter:description" content="记录一下踩得坑">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11321603-38175e3a321d7664.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -187,7 +188,7 @@
 <p>5.选择安装位置，其实可以把windows的硬盘切出100G左右新建一个硬盘，但是感觉在安装过程中因为没有盘符，不太容易分辨，遂直接将100G作为空闲区，好像ubuntu直接在空闲区安装了</p>
 <p>6.如果使用N卡的用户，安装完成之后在引导界面选择第一条ubuntu进入黑屏，可以选择第二条高级ubuntu选项进入系统，安装N卡驱动之后便可从第一条进入了</p>
 <h1 id="配置沙箱时的一些小坑"><a href="#配置沙箱时的一些小坑" class="headerlink" title="配置沙箱时的一些小坑"></a>配置沙箱时的一些小坑</h1><p>1.apt-get下载记得修改源，我这边用的阿里云的</p>
-<p>2.pip下载慢也可以修改源，也可以使用命令在当次下载换源</p>
+<p>2.pip下载慢也可以修改源，也可以使用命令在当次下载换源，这里最后pip install cuckoo的时候强烈推荐换清华源安装，30秒结束</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 你要的包名字</span><br></pre></td></tr></table></figure>
 <p>3.ubuntu安装vbox</p>
 <p>​    1.到oracle的<a href="https://www.virtualbox.org/网站下载ubuntu平台最新版的virtualbox软件，我下载的是virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb" target="_blank" rel="noopener">https://www.virtualbox.org/网站下载ubuntu平台最新版的virtualbox软件，我下载的是virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb</a><br>​    2执行如下命令进行安装</p>
@@ -197,7 +198,10 @@
 <p>​    再次执行</p>
 <p>sudo dpkg -i virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb</p>
 <p>vbox默认先安装系统后加载.ios文件，方法是点击你安装的系统，设置——存储——空光盘加载系统ios文件</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-38175e3a321d7664.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<h1 id="有丶问题"><a href="#有丶问题" class="headerlink" title="有丶问题"></a>有丶问题</h1><p>1.不清楚啥原因，安装完双系统每次进入windows的时候，系统事件总会变时区好像，需要再自动获取一下</p>
+<p>2.ubuntu有很多美化的主题，感觉比windows好玩点(比如仿os x之类的吧)</p>
 
       
 
@@ -445,11 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
             
             <div class="clearfix"></div>
