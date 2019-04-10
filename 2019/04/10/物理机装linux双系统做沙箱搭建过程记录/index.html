@@ -6,29 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.obolu.top">
-  <title>xss渗透之BeEF学习 | Obolu的小博客</title>
+  <title>物理机装linux双系统做沙箱搭建过程记录 | Obolu的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="keywords" content="web学习">
+  <meta name="description" content="记录一下踩得坑">
+<meta name="keywords" content="知识收藏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xss渗透之BeEF学习">
-<meta property="og:url" content="http://www.obolu.top/2018/07/17/BeEF学习/index.html">
+<meta property="og:title" content="物理机装linux双系统做沙箱搭建过程记录">
+<meta property="og:url" content="http://www.obolu.top/2019/04/10/物理机装linux双系统做沙箱搭建过程记录/index.html">
 <meta property="og:site_name" content="Obolu的小博客">
-<meta property="og:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
+<meta property="og:description" content="记录一下踩得坑">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim">
-<meta property="og:image" content="http://img.5am3.com/img/180717/h415JmF155.png?imageslim">
-<meta property="og:updated_time" content="2018-07-17T03:38:11.144Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-04-10T02:32:55.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xss渗透之BeEF学习">
-<meta name="twitter:description" content="BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。  BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。  BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.  通过xss这个漏洞，BeEF可以通过一段编制好">
-<meta name="twitter:image" content="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim">
+<meta name="twitter:title" content="物理机装linux双系统做沙箱搭建过程记录">
+<meta name="twitter:description" content="记录一下踩得坑">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -164,55 +157,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BeEF学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-物理机装linux双系统做沙箱搭建过程记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      xss渗透之BeEF学习
+      物理机装linux双系统做沙箱搭建过程记录
     </h1>
   
 
         
-        <a href="/2018/07/17/BeEF学习/" class="archive-article-date">
-  	<time datetime="2018-07-17T02:34:22.153Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
+        <a href="/2019/04/10/物理机装linux双系统做沙箱搭建过程记录/" class="archive-article-date">
+  	<time datetime="2019-04-10T02:33:09.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</p>
-</li>
-<li><p>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</p>
-</li>
-<li><p>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</p>
-</li>
-<li><p>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</p>
+        <p>记录一下踩得坑</p>
 <a id="more"></a>
-</li>
-</ul>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>BeEF是一个用于合法研究和测试目的的浏览器漏洞利用框架，攻击成功以后会加载浏览器劫持会话。</li>
-<li>BeFF，它扩展了跨站漏洞的利用，能hook很多浏览器(IE和Firefox等)并可以执行很多内嵌命令。</li>
-<li>BeEF是目前欧美最流行的web框架攻击平台，它的全称是：the Browser exploitation framework project.</li>
-<li>通过xss这个漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。</li>
-</ul>
-<h2 id="BeEF安装"><a href="#BeEF安装" class="headerlink" title="BeEF安装"></a>BeEF安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install beef-xss</span><br><span class="line">下载安装，这里安装到了/usr/share文件夹下</span><br><span class="line">进入安装文件下输入./beef启动</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.5am3.com/img/180717/26Kg4I7ki1.png?imageslim" alt="mark"></p>
-<p>这里HOOK URL为给目标机发送的诱饵地址，UI URL为操作机控制被操控的目标机的操作界面<br>通过操作机打开UI URL，默认账号密码为beef</p>
-<p><img src="http://img.5am3.com/img/180717/dL066Bg4K3.png?imageslim" alt="mark"></p>
-<p>登录演示目标机访问192.168.1.8080/admin.html<br>网页代码如下：<br><img src="http://img.5am3.com/img/180717/BAilGg2EKk.png?imageslim" alt="mark"><br>可见目标机访问之后会被操作机控制，打开beef界面看到<br><img src="http://img.5am3.com/img/180717/BGbjfKC95F.png?imageslim" alt="mark"><br>HOOK持续的时间为关闭测试页面为止。在此期间，相当于被控制了，可以发送攻击命令了。选择commands栏，可以看到很多已经分好类的攻击模块。<br>其中，4种颜色分别表示：<br>绿色→该攻击模块可用，且隐蔽性强<br>灰色→该攻击模块可用，但隐蔽性查<br>橙色→该用户模块是否可用还有待验证<br>红色→该攻击模块不可用</p>
-<h2 id="BeEF和metasploit组合"><a href="#BeEF和metasploit组合" class="headerlink" title="BeEF和metasploit组合"></a>BeEF和metasploit组合</h2><p>由于BeEF默认是不加载metasploit的，要使用Metasploit丰富的攻击模块，需要做些配置。BT5下，首先到beef目录下修改config.yaml文件,将其中的metasploit选项改为true，如下所示：<br><img src="http://img.5am3.com/img/180717/9LC2eGibkc.png?imageslim" alt="mark"><br>然后修改beef安装目录下/extensions/metasploit/config.yaml<br><img src="http://img.5am3.com/img/180717/m1EllfFBb4.png?imageslim" alt="mark"><br>输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/postgresql start</span><br></pre></td></tr></table></figure>
-<p>启动postgresql服务。输入命令“msfdb init”,初始化数据库。<br>1.8 在终端中输入“msfconsole”启动metasploit模块,输入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load msgrpc ServerHost=192.168.1.2 Pass=abc123</span><br></pre></td></tr></table></figure>
-<p>进入beef安装目录，启动beef<br>Ps：这里必须先开msf，再开beef，才能在beef下用msf，也就是说两者开着一起工作！<br><img src="http://img.5am3.com/img/180717/0DlJhil61g.png?imageslim" alt="mark"></p>
-<p>PS：例如get cookie<br><img src="http://img.5am3.com/img/180717/h415JmF155.png?imageslim" alt="mark"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BeEF：The Browser Exploitation Framework 的缩写，意在通过一些手段，控制对方的浏览器。<br>里面集成了很多模块，能够获取很多东西，有cookie，浏览器名字，版本，插件，是否支持java，vb，flash等，感觉很神器的一个工具，还可以通过组合metasploit自动化攻击<br>一些关于BeEF的文章:<br><a href="https://blog.csdn.net/emaste_r/article/details/17091067" title="初探BeEF(有自动化攻击IE6实例)" target="_blank" rel="noopener">初探BeEF(有自动化攻击IE6实例)</a><br><a href="https://www.cnblogs.com/xuanhun/p/4203143.html" title="kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）" target="_blank" rel="noopener">kali Linux系列教程之BeFF安装与集成Metasploit（安装过程非常详细，因为我的linux自带了Ruby和beef，所以很多东西诸如bundler等都没有自己安装）</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>参考链接：<a href="https://blog.csdn.net/s717597589/article/details/79117112/" target="_blank" rel="noopener">https://blog.csdn.net/s717597589/article/details/79117112/</a></p>
+<h1 id="双系统安装过程遇到的坑"><a href="#双系统安装过程遇到的坑" class="headerlink" title="双系统安装过程遇到的坑"></a>双系统安装过程遇到的坑</h1><p>1.ubuntu18.04设置u盘启动失败，提示什么引导错误一类的，遂用的16.04安装</p>
+<p>2.不同的笔记本BIOS不太一样，开机LOGO按哪个键也不太一样</p>
+<p>3.U盘启动盘设置完成后，有几率ubuntu16.04直接进卡在logo界面，此时在开始安装前有一个下面类似鼠标+键盘的界面，此时按E进入安装控制界面，选择语言(可选)，进入在U盘里面体验Linux而不安装，这个选项可以进入一个ubuntu的demo中图形界面安装ubuntu到物理机</p>
+<p>4.安装过程中有一个是否和windows共存，如果选了这个那么安装结束后好像默认从ubuntu引导，在选项中可选windows系统，不过也可以在安装完成后在windows中利用easyBCD工具修改引导。从windows界面选择系统(强迫症可以试试，因为Ubuntu优先一开始一个紫色比较难受)</p>
+<p>5.选择安装位置，其实可以把windows的硬盘切出100G左右新建一个硬盘，但是感觉在安装过程中因为没有盘符，不太容易分辨，遂直接将100G作为空闲区，好像ubuntu直接在空闲区安装了</p>
+<p>6.如果使用N卡的用户，安装完成之后在引导界面选择第一条ubuntu进入黑屏，可以选择第二条高级ubuntu选项进入系统，安装N卡驱动之后便可从第一条进入了</p>
+<h1 id="配置沙箱时的一些小坑"><a href="#配置沙箱时的一些小坑" class="headerlink" title="配置沙箱时的一些小坑"></a>配置沙箱时的一些小坑</h1><p>1.apt-get下载记得修改源，我这边用的阿里云的</p>
+<p>2.pip下载慢也可以修改源，也可以使用命令在当次下载换源</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 你要的包名字</span><br></pre></td></tr></table></figure>
+<p>3.ubuntu安装vbox</p>
+<p>​    1.到oracle的<a href="https://www.virtualbox.org/网站下载ubuntu平台最新版的virtualbox软件，我下载的是virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb" target="_blank" rel="noopener">https://www.virtualbox.org/网站下载ubuntu平台最新版的virtualbox软件，我下载的是virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb</a><br>​    2执行如下命令进行安装</p>
+<p>​    sudo dpkg -i virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb</p>
+<p>​    安装中会报错 需要依赖的 libqt5x11extras5和 libsdl1.2debian<br>​    执行如下命令进行安装</p>
+<p>​    apt-get install  libqt5x11extras5 libsdl1.2debian</p>
+<p>​    再次执行</p>
+<p>sudo dpkg -i virtualbox-5.1_5.1.18-114002~Ubuntu~xenial_amd64.deb</p>
+<p>vbox默认先安装系统后加载.ios文件，方法是点击你安装的系统，设置——存储——空光盘加载系统ios文件</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-84aef72d498b06bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 
       
 
@@ -247,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识收藏</a>
         		</li>
       		
 		</ul>
@@ -314,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2018/07/17/BeEF学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.obolu.top/2019/04/10/物理机装linux双系统做沙箱搭建过程记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +313,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/17/利用ubuntu16搭建docker教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用ubuntu16搭建docker教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/17/beef结合metasploit初试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">xss渗透之利用beef结合metasploit初试</div>
+    <a href="/2019/04/06/Phar反序列化学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Phar反序列化学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
