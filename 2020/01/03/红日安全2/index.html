@@ -58,8 +58,8 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-107238444c3eebf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-a3ff1e2974740d4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-20582abddc5d234c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="c:/Users/55398/AppData/Roaming/Typora/typora-user-images/image-20200113155748378.png">
-<meta property="og:updated_time" content="2020-01-13T08:22:23.477Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11321603-7da9084b039206c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-01-13T09:03:15.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红日安全靶场vulnstack2过程文档">
 <meta name="twitter:description" content="靶场连接：http://vulnstack.qiyuanxuetang.net/vuln/detail/3/">
@@ -345,7 +345,7 @@
 <p>执行shell.exe，并未收到反弹….猜测是web服务器的地址并未像路由器一样转发DC的请求….而windows默认关闭了IP转发的功能….</p>
 <p>修改注册表信息<br>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\IPEnableRouter<br>修改为 1 </p>
 <p><img src="https://upload-images.jianshu.io/upload_images/11321603-20582abddc5d234c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="C:\Users\55398\AppData\Roaming\Typora\typora-user-images\image-20200113155748378.png" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11321603-7da9084b039206c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>此时DC可以ping通192.168.40.0/24网段….但是还是不通192.168.40.138(kali)</p>
 <p>心态略崩….纠结结合一下”web服务器”和”DC服务器”的命令执行权限，是否可以通过二层代理直接把kali流量和DC流量交互…改天学习一下</p>
 
@@ -600,19 +600,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
+                <a href="javascript:void(0)" class="js-tag color3">writeup</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识收藏</a>
               </li>
             
             <div class="clearfix"></div>
